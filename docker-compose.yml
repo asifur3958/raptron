@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  raptron-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: raptron-web
+    restart: unless-stopped
+    ports:
+      - "7500:7500"
+    environment:
+      - PORT=7500
+      - HOST=0.0.0.0
+      - NODE_ENV=production
+    # If you have external APIs or databases, you can add them to this network or environment variables

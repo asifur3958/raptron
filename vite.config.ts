@@ -11,7 +11,7 @@ export default defineConfig({
     tailwindcss(),
     tsConfigPaths({ projects: ["./tsconfig.json"] }),
     tanstackStart({
-      server: { preset: "vercel" },
+      server: { preset: process.env.NITRO_PRESET || "node-server" },
       importProtection: {
         behavior: "error",
         client: {
