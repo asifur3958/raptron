@@ -17,7 +17,9 @@ export function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [open]);
 
   return (
@@ -42,16 +44,21 @@ export function Navbar() {
               to="/services"
               className="px-4 h-10 inline-flex items-center gap-1 text-sm font-medium text-ink/80 hover:text-ink rounded-full transition"
             >
-              Services <ChevronDown size={14} className={`transition ${servicesOpen ? "rotate-180" : ""}`} />
+              Services{" "}
+              <ChevronDown size={14} className={`transition ${servicesOpen ? "rotate-180" : ""}`} />
             </Link>
             <div
               className={`absolute left-1/2 -translate-x-[40%] top-[calc(100%+1rem)] w-[900px] transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] origin-top-left ${
-                servicesOpen ? "opacity-100 scale-100 translate-y-0 pointer-events-auto" : "opacity-0 scale-95 -translate-y-4 pointer-events-none"
+                servicesOpen
+                  ? "opacity-100 scale-100 translate-y-0 pointer-events-auto"
+                  : "opacity-0 scale-95 -translate-y-4 pointer-events-none"
               }`}
             >
               <div className="rounded-[2.5rem] bg-white border border-white shadow-[0_40px_100px_-20px_rgba(0,0,0,0.15)] overflow-hidden flex">
                 <div className="flex-1 p-8">
-                  <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink/40 font-semibold mb-6 px-3">Our Capabilities</div>
+                  <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink/40 font-semibold mb-6 px-3">
+                    Our Capabilities
+                  </div>
                   <div className="grid grid-cols-2 gap-x-2 gap-y-1">
                     {SERVICES.map((s) => {
                       const Icon = s.icon;
@@ -66,8 +73,12 @@ export function Navbar() {
                             <Icon size={18} />
                           </div>
                           <div>
-                            <div className="font-display font-semibold text-ink text-sm group-hover:text-brand transition-colors">{s.shortTitle}</div>
-                            <div className="text-[13px] text-ink/60 mt-0.5 line-clamp-1">{s.tagline}</div>
+                            <div className="font-display font-semibold text-ink text-sm group-hover:text-brand transition-colors">
+                              {s.shortTitle}
+                            </div>
+                            <div className="text-[13px] text-ink/60 mt-0.5 line-clamp-1">
+                              {s.tagline}
+                            </div>
                           </div>
                         </Link>
                       );
@@ -78,7 +89,7 @@ export function Navbar() {
                 <div className="w-[320px] bg-ink relative overflow-hidden p-8 flex flex-col justify-between group">
                   <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay" />
                   <div className="absolute -top-32 -right-32 w-64 h-64 bg-brand/30 blur-[60px] rounded-full group-hover:scale-150 transition-transform duration-700" />
-                  
+
                   <div className="relative z-10">
                     <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-medium text-white mb-6">
                       <Sparkles size={12} className="text-brand-2" /> Transformation
@@ -90,8 +101,11 @@ export function Navbar() {
                       Book a discovery call to map out your digital infrastructure roadmap.
                     </p>
                   </div>
-                  
-                  <Link to="/book-consultation" className="relative z-10 w-full flex items-center justify-between p-4 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/10 transition-colors group/btn">
+
+                  <Link
+                    to="/book-consultation"
+                    className="relative z-10 w-full flex items-center justify-between p-4 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/10 transition-colors group/btn"
+                  >
                     <span className="font-semibold text-white text-sm">Book Consultation</span>
                     <div className="size-8 rounded-full bg-white text-ink flex items-center justify-center group-hover/btn:scale-110 transition-transform">
                       <ArrowRight size={14} />
@@ -131,7 +145,11 @@ export function Navbar() {
       >
         <div className="h-16 px-6 flex items-center justify-between border-b border-hairline">
           <img src="/logo.png" alt="Raptron Logo" className="h-40 w-auto" />
-          <button onClick={() => setOpen(false)} className="size-10 rounded-full border border-hairline flex items-center justify-center" aria-label="Close menu">
+          <button
+            onClick={() => setOpen(false)}
+            className="size-10 rounded-full border border-hairline flex items-center justify-center"
+            aria-label="Close menu"
+          >
             <X size={18} />
           </button>
         </div>
@@ -154,7 +172,11 @@ export function Navbar() {
           <MobileLink to="/about" label="About" onClick={() => setOpen(false)} />
           <MobileLink to="/contact" label="Contact" onClick={() => setOpen(false)} />
           <div className="pt-6 space-y-3">
-            <Link to="/request-demo" onClick={() => setOpen(false)} className="block text-center px-5 h-12 leading-[3rem] rounded-full border border-brand/40 bg-surface-tinted font-medium">
+            <Link
+              to="/request-demo"
+              onClick={() => setOpen(false)}
+              className="block text-center px-5 h-12 leading-[3rem] rounded-full border border-brand/40 bg-surface-tinted font-medium"
+            >
               Request Demo
             </Link>
           </div>
@@ -178,7 +200,11 @@ function NavItem({ to, label }: { to: string; label: string }) {
 
 function MobileLink({ to, label, onClick }: { to: string; label: string; onClick: () => void }) {
   return (
-    <Link to={to} onClick={onClick} className="block py-3 text-lg font-display font-semibold text-ink">
+    <Link
+      to={to}
+      onClick={onClick}
+      className="block py-3 text-lg font-display font-semibold text-ink"
+    >
       {label}
     </Link>
   );

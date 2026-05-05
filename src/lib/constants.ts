@@ -1,7 +1,17 @@
 import type { LucideIcon } from "lucide-react";
 import {
-  Compass, Layers, Puzzle, Workflow, Code2, BrainCircuit,
-  Factory, ShoppingBag, Building2, LineChart, HardHat, Wrench,
+  Compass,
+  Layers,
+  Puzzle,
+  Workflow,
+  Code2,
+  BrainCircuit,
+  Factory,
+  ShoppingBag,
+  Building2,
+  LineChart,
+  HardHat,
+  Wrench,
 } from "lucide-react";
 
 export type ServiceSlug =
@@ -52,13 +62,25 @@ export const SERVICES: Service[] = [
     process: [
       { title: "Discovery", description: "Deep interviews across functions and operations." },
       { title: "Analysis", description: "Map current-state inefficiencies and capability gaps." },
-      { title: "Architecture", description: "Design future-state systems and selection shortlist." },
+      {
+        title: "Architecture",
+        description: "Design future-state systems and selection shortlist.",
+      },
       { title: "Roadmap", description: "Phased plan with budgets, owners, and milestones." },
     ],
     outcomes: [
-      { title: "Reduced implementation risk", description: "Decisions backed by evidence, not vendor pressure." },
-      { title: "Faster time-to-value", description: "Roadmaps that prioritize quick operational wins." },
-      { title: "Aligned investment", description: "Technology spend matched to business outcomes." },
+      {
+        title: "Reduced implementation risk",
+        description: "Decisions backed by evidence, not vendor pressure.",
+      },
+      {
+        title: "Faster time-to-value",
+        description: "Roadmaps that prioritize quick operational wins.",
+      },
+      {
+        title: "Aligned investment",
+        description: "Technology spend matched to business outcomes.",
+      },
     ],
   },
   {
@@ -92,7 +114,10 @@ export const SERVICES: Service[] = [
     outcomes: [
       { title: "On-time go-live", description: "Disciplined execution against clear milestones." },
       { title: "Zero-loss migration", description: "Verified data quality across every cutover." },
-      { title: "Adoption-ready teams", description: "Trained, equipped, and confident from day one." },
+      {
+        title: "Adoption-ready teams",
+        description: "Trained, equipped, and confident from day one.",
+      },
     ],
   },
   {
@@ -104,11 +129,7 @@ export const SERVICES: Service[] = [
     description:
       "Custom modules, integrations, and automations that reshape your ERP around your real operating model.",
     icon: Puzzle,
-    bullets: [
-      "Custom module engineering",
-      "Workflow automation",
-      "Third-party API integrations",
-    ],
+    bullets: ["Custom module engineering", "Workflow automation", "Third-party API integrations"],
     whatsIncluded: [
       "Custom module development",
       "Workflow automation & process alignment",
@@ -124,9 +145,18 @@ export const SERVICES: Service[] = [
       { title: "Optimize", description: "Tune performance and document the system." },
     ],
     outcomes: [
-      { title: "Automated manual work", description: "Eliminate friction across recurring workflows." },
-      { title: "Unified system ecosystem", description: "Single source of truth across applications." },
-      { title: "Optimized performance", description: "Systems engineered to scale with your data." },
+      {
+        title: "Automated manual work",
+        description: "Eliminate friction across recurring workflows.",
+      },
+      {
+        title: "Unified system ecosystem",
+        description: "Single source of truth across applications.",
+      },
+      {
+        title: "Optimized performance",
+        description: "Systems engineered to scale with your data.",
+      },
     ],
   },
   {
@@ -159,7 +189,10 @@ export const SERVICES: Service[] = [
     ],
     outcomes: [
       { title: "Productivity gains", description: "Measurable lift in throughput per role." },
-      { title: "Standardized operations", description: "Consistent execution across teams and sites." },
+      {
+        title: "Standardized operations",
+        description: "Consistent execution across teams and sites.",
+      },
       { title: "Data-driven decisions", description: "Operating rhythm built on live KPIs." },
     ],
   },
@@ -206,11 +239,7 @@ export const SERVICES: Service[] = [
     description:
       "Pragmatic AI strategy and integration — embedding predictive intelligence into the systems your business already runs on.",
     icon: BrainCircuit,
-    bullets: [
-      "AI readiness & strategy",
-      "Predictive analytics",
-      "AI inside ERP & workflows",
-    ],
+    bullets: ["AI readiness & strategy", "Predictive analytics", "AI inside ERP & workflows"],
     whatsIncluded: [
       "AI readiness & strategy development",
       "Use-case identification & ROI mapping",
@@ -275,17 +304,38 @@ export const TESTIMONIALS = [
 
 export const PROCESS_STEPS = [
   { title: "Discovery & Audit", description: "Understand the business, the people, the data." },
-  { title: "Solution Architecture", description: "Design systems and processes that fit how you operate." },
-  { title: "Implementation & Configuration", description: "Build, integrate, and validate against real workflows." },
-  { title: "Training & Change Management", description: "Equip teams to own the new way of working." },
+  {
+    title: "Solution Architecture",
+    description: "Design systems and processes that fit how you operate.",
+  },
+  {
+    title: "Implementation & Configuration",
+    description: "Build, integrate, and validate against real workflows.",
+  },
+  {
+    title: "Training & Change Management",
+    description: "Equip teams to own the new way of working.",
+  },
   { title: "Optimization & Growth", description: "Measure, iterate, and compound the value." },
 ];
 
 export const VALUES = [
-  { title: "Client-First Thinking", description: "Your outcomes shape every recommendation we make." },
-  { title: "Engineering Integrity", description: "We build what we'd be proud to operate ourselves." },
-  { title: "Continuous Improvement", description: "Every engagement leaves an organization stronger." },
-  { title: "Transparent Partnership", description: "Honest scopes, honest tradeoffs, honest reporting." },
+  {
+    title: "Client-First Thinking",
+    description: "Your outcomes shape every recommendation we make.",
+  },
+  {
+    title: "Engineering Integrity",
+    description: "We build what we'd be proud to operate ourselves.",
+  },
+  {
+    title: "Continuous Improvement",
+    description: "Every engagement leaves an organization stronger.",
+  },
+  {
+    title: "Transparent Partnership",
+    description: "Honest scopes, honest tradeoffs, honest reporting.",
+  },
 ];
 
 export const COMPANY = {

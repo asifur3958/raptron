@@ -1,6 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { User, Globe, Mail, Phone, Building2, Pencil, Languages, HelpCircle, Check, ArrowRight, Sparkles, ShieldCheck } from "lucide-react";
+import {
+  User,
+  Globe,
+  Mail,
+  Phone,
+  Building2,
+  Pencil,
+  Languages,
+  HelpCircle,
+  Check,
+  ArrowRight,
+  Sparkles,
+  ShieldCheck,
+} from "lucide-react";
 import { z } from "zod";
 import { SuccessState } from "./contact";
 import { INDUSTRIES } from "@/lib/constants";
@@ -9,7 +22,11 @@ export const Route = createFileRoute("/request-demo")({
   head: () => ({
     meta: [
       { title: "Request a Demo — RAPTRON" },
-      { name: "description", content: "See how RAPTRON transforms your business vision into reality. Request a demo today." },
+      {
+        name: "description",
+        content:
+          "See how RAPTRON transforms your business vision into reality. Request a demo today.",
+      },
     ],
   }),
   component: RequestDemoPage,
@@ -53,17 +70,19 @@ function RequestDemoPage() {
     const result = schema.safeParse(data);
     if (!result.success) {
       const errs: Record<string, string> = {};
-      result.error.issues.forEach((iss) => { errs[String(iss.path[0])] = iss.message; });
+      result.error.issues.forEach((iss) => {
+        errs[String(iss.path[0])] = iss.message;
+      });
       setErrors(errs);
       return;
     }
-    
+
     setErrors({});
     setIsSubmitting(true);
-    
+
     // Simulate API delay
-    await new Promise(r => setTimeout(r, 1200));
-    
+    await new Promise((r) => setTimeout(r, 1200));
+
     setIsSubmitting(false);
     setSubmitted(true);
   };
@@ -72,7 +91,6 @@ function RequestDemoPage() {
     <div className="min-h-screen bg-background pt-20 lg:pt-24 pb-20 lg:pb-28 px-4 sm:px-6">
       <div className="mx-auto max-w-6xl">
         <div className="bg-white rounded-[2rem] lg:rounded-[2.5rem] shadow-2xl border border-hairline overflow-hidden flex flex-col lg:flex-row items-stretch">
-          
           {/* Left panel: Immersive Brand Experience */}
           <div className="relative overflow-hidden bg-brand-deep text-white flex flex-col w-full lg:w-5/12 xl:w-[45%] shrink-0">
             {/* Background Effects */}
@@ -82,10 +100,13 @@ function RequestDemoPage() {
             <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-2/20 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
 
             <div className="relative z-10 flex-1 flex flex-col p-8 sm:p-10 lg:p-14">
-              
               {/* Logo Section */}
               <div className="mb-6 lg:mb-8 -mt-6 lg:-mt-10">
-                <img src="/logo.png" alt="RAPTRON Logo" className="h-20 w-auto scale-[1.5] origin-left filter drop-shadow-lg brightness-0 invert" />
+                <img
+                  src="/logo.png"
+                  alt="RAPTRON Logo"
+                  className="h-20 w-auto scale-[1.5] origin-left filter drop-shadow-lg brightness-0 invert"
+                />
               </div>
 
               <div className="flex-1 flex flex-col justify-center">
@@ -93,19 +114,26 @@ function RequestDemoPage() {
                   <Sparkles size={14} className="text-brand-2" />
                   <span>Personalized Walkthrough</span>
                 </div>
-                
+
                 <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight mb-6 text-white">
-                  See RAPTRON <br/>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-mist to-brand-2">in action.</span>
+                  See RAPTRON <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-mist to-brand-2">
+                    in action.
+                  </span>
                 </h1>
-                <p className="text-xl text-white/90 italic font-medium mb-6">An ERP, unlike any other.</p>
+                <p className="text-xl text-white/90 italic font-medium mb-6">
+                  An ERP, unlike any other.
+                </p>
                 <p className="text-white/70 text-lg max-w-md font-sans leading-relaxed">
-                  Experience how RAPTRON transforms your business vision into reality. Designed to evolve with your operations today and tomorrow.
+                  Experience how RAPTRON transforms your business vision into reality. Designed to
+                  evolve with your operations today and tomorrow.
                 </p>
               </div>
 
               <div className="mt-12 bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl p-8">
-                <div className="font-mono text-[11px] uppercase tracking-widest text-white mb-6">How we approach the demo</div>
+                <div className="font-mono text-[11px] uppercase tracking-widest text-white mb-6">
+                  How we approach the demo
+                </div>
                 <ul className="space-y-4">
                   {[
                     "Grounded in your business goals and workflows",
@@ -113,7 +141,10 @@ function RequestDemoPage() {
                     "Focused on how everything works together, end to end",
                     "Covers our full solution stack comprehensively",
                   ].map((b, i) => (
-                    <li key={i} className="flex items-start gap-4 text-white/80 text-sm md:text-base group">
+                    <li
+                      key={i}
+                      className="flex items-start gap-4 text-white/80 text-sm md:text-base group"
+                    >
                       <span className="size-6 rounded-full bg-brand/30 border border-brand/50 text-white flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-110 group-hover:bg-brand transition-all">
                         <Check size={14} />
                       </span>
@@ -129,27 +160,79 @@ function RequestDemoPage() {
           <div className="flex-1 flex flex-col justify-center bg-white relative z-10">
             <div className="p-8 sm:p-10 lg:p-12 xl:p-14 relative overflow-hidden h-full flex flex-col">
               <div className="absolute top-0 right-0 w-72 h-72 bg-surface-tinted rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-              
+
               {submitted ? (
-                <div className="m-auto"><SuccessState /></div>
+                <div className="m-auto">
+                  <SuccessState />
+                </div>
               ) : (
                 <div className="relative z-10 flex-1 flex flex-col justify-center animate-in fade-in slide-in-from-bottom-8 duration-700">
                   <div className="mb-6">
-                    <h2 className="font-display text-2xl lg:text-3xl font-bold text-ink mb-2">Request your Demo</h2>
-                    <p className="text-ink/60 text-sm lg:text-base">Tell us about your organization and requirements, and we'll tailor the experience.</p>
+                    <h2 className="font-display text-2xl lg:text-3xl font-bold text-ink mb-2">
+                      Request your Demo
+                    </h2>
+                    <p className="text-ink/60 text-sm lg:text-base">
+                      Tell us about your organization and requirements, and we'll tailor the
+                      experience.
+                    </p>
                   </div>
 
                   <form onSubmit={onSubmit} className="grid sm:grid-cols-2 gap-x-5 gap-y-4">
-                    <IconField name="name" label="Full name" placeholder="John Doe" icon={User} error={errors.name} />
-                    <IconField name="website" label="Company website" placeholder="acme.com" icon={Globe} error={errors.website} />
-                    <IconField name="email" label="Work email" type="email" placeholder="john@acme.com" icon={Mail} error={errors.email} />
-                    <IconField name="phone" label="Phone number" type="tel" placeholder="+1 (555) 000-0000" icon={Phone} error={errors.phone} />
-                    
-                    <IconSelect name="industry" label="Industry" icon={Building2} error={errors.industry} options={[...INDUSTRIES.map(i => i.name), "Other"]} />
-                    <IconSelect name="size" label="Company size" icon={Building2} error={errors.size} options={["1–10", "11–50", "51–200", "201–500", "500+"]} />
-                    
+                    <IconField
+                      name="name"
+                      label="Full name"
+                      placeholder="John Doe"
+                      icon={User}
+                      error={errors.name}
+                    />
+                    <IconField
+                      name="website"
+                      label="Company website"
+                      placeholder="acme.com"
+                      icon={Globe}
+                      error={errors.website}
+                    />
+                    <IconField
+                      name="email"
+                      label="Work email"
+                      type="email"
+                      placeholder="john@acme.com"
+                      icon={Mail}
+                      error={errors.email}
+                    />
+                    <IconField
+                      name="phone"
+                      label="Phone number"
+                      type="tel"
+                      placeholder="+1 (555) 000-0000"
+                      icon={Phone}
+                      error={errors.phone}
+                    />
+
+                    <IconSelect
+                      name="industry"
+                      label="Industry"
+                      icon={Building2}
+                      error={errors.industry}
+                      options={[...INDUSTRIES.map((i) => i.name), "Other"]}
+                    />
+                    <IconSelect
+                      name="size"
+                      label="Company size"
+                      icon={Building2}
+                      error={errors.size}
+                      options={["1–10", "11–50", "51–200", "201–500", "500+"]}
+                    />
+
                     <div className="sm:col-span-2">
-                      <IconField name="requirements" label="Describe your requirements" placeholder="What specific challenges are you looking to solve?" icon={Pencil} textarea error={errors.requirements} />
+                      <IconField
+                        name="requirements"
+                        label="Describe your requirements"
+                        placeholder="What specific challenges are you looking to solve?"
+                        icon={Pencil}
+                        textarea
+                        error={errors.requirements}
+                      />
                     </div>
 
                     <div className="sm:col-span-2 relative overflow-hidden bg-gradient-to-r from-surface-tinted/50 to-white p-5 rounded-2xl border border-brand/20 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-2 group hover:border-brand/40 transition-colors">
@@ -161,8 +244,15 @@ function RequestDemoPage() {
                           <ShieldCheck size={20} />
                         </div>
                         <div>
-                          <span className="block text-[13px] font-bold uppercase tracking-wider text-ink mb-0.5">Security Check</span>
-                          <span className="block text-sm text-ink/60 font-medium">Please solve: <strong className="text-brand text-base ml-1">{captcha.a} + {captcha.b}</strong></span>
+                          <span className="block text-[13px] font-bold uppercase tracking-wider text-ink mb-0.5">
+                            Security Check
+                          </span>
+                          <span className="block text-sm text-ink/60 font-medium">
+                            Please solve:{" "}
+                            <strong className="text-brand text-base ml-1">
+                              {captcha.a} + {captcha.b}
+                            </strong>
+                          </span>
                         </div>
                       </div>
                       <div className="relative z-10">
@@ -173,24 +263,37 @@ function RequestDemoPage() {
                           placeholder="="
                           className="w-full sm:w-24 h-12 rounded-xl bg-white border border-hairline px-4 text-center font-display font-bold text-xl text-ink outline-none transition-all focus:border-brand focus:ring-4 focus:ring-brand/20 shadow-sm hover:border-brand/50"
                         />
-                        {captchaError && <span className="absolute -bottom-6 right-0 text-[11px] font-semibold text-destructive whitespace-nowrap bg-white px-2 py-0.5 rounded shadow-sm border border-destructive/20">{captchaError}</span>}
+                        {captchaError && (
+                          <span className="absolute -bottom-6 right-0 text-[11px] font-semibold text-destructive whitespace-nowrap bg-white px-2 py-0.5 rounded shadow-sm border border-destructive/20">
+                            {captchaError}
+                          </span>
+                        )}
                       </div>
                     </div>
 
                     <div className="sm:col-span-2 mt-2 pt-4 border-t border-hairline flex flex-col sm:flex-row items-center justify-between gap-4">
                       <p className="text-xs text-ink/50 max-w-[200px] text-center sm:text-left">
-                        By clicking Request Demo, you agree to our <a href="#" className="underline hover:text-brand transition-colors">Privacy Policy</a>.
+                        By clicking Request Demo, you agree to our{" "}
+                        <a href="#" className="underline hover:text-brand transition-colors">
+                          Privacy Policy
+                        </a>
+                        .
                       </p>
-                      
-                      <button 
-                        type="submit" 
+
+                      <button
+                        type="submit"
                         disabled={isSubmitting}
                         className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full bg-ink text-white font-semibold overflow-hidden transition-all hover:shadow-glow disabled:opacity-70 disabled:cursor-not-allowed shrink-0"
                       >
                         <div className="absolute inset-0 bg-gradient-brand opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         <span className="relative z-10 flex items-center gap-2 text-sm">
-                          {isSubmitting ? "Submitting..." : "Request Demo"} 
-                          {!isSubmitting && <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />}
+                          {isSubmitting ? "Submitting..." : "Request Demo"}
+                          {!isSubmitting && (
+                            <ArrowRight
+                              size={16}
+                              className="group-hover:translate-x-1 transition-transform"
+                            />
+                          )}
                         </span>
                       </button>
                     </div>
@@ -205,20 +308,51 @@ function RequestDemoPage() {
   );
 }
 
-function IconField({ name, label, placeholder, icon: Icon, type = "text", textarea, error }: { name: string; label: string; placeholder?: string; icon: typeof User; type?: string; textarea?: boolean; error?: string }) {
-  const baseClasses = "w-full rounded-2xl bg-ink/5 border-2 border-transparent pl-11 pr-4 text-sm text-ink placeholder:text-ink/40 outline-none transition-all duration-300 focus:bg-white focus:border-brand focus:ring-4 focus:ring-brand/10 hover:bg-ink/10";
+function IconField({
+  name,
+  label,
+  placeholder,
+  icon: Icon,
+  type = "text",
+  textarea,
+  error,
+}: {
+  name: string;
+  label: string;
+  placeholder?: string;
+  icon: typeof User;
+  type?: string;
+  textarea?: boolean;
+  error?: string;
+}) {
+  const baseClasses =
+    "w-full rounded-2xl bg-ink/5 border-2 border-transparent pl-11 pr-4 text-sm text-ink placeholder:text-ink/40 outline-none transition-all duration-300 focus:bg-white focus:border-brand focus:ring-4 focus:ring-brand/10 hover:bg-ink/10";
   const inputClasses = `${baseClasses} h-12`;
   const textareaClasses = `${baseClasses} py-3 min-h-[90px] resize-y`;
-  
+
   return (
     <label className="block relative group">
-      <span className="block text-xs font-semibold text-ink/80 mb-1.5 transition-colors group-focus-within:text-brand">{label}</span>
+      <span className="block text-xs font-semibold text-ink/80 mb-1.5 transition-colors group-focus-within:text-brand">
+        {label}
+      </span>
       <div className="relative">
-        <Icon size={16} className={`absolute left-3.5 ${textarea ? "top-3.5" : "top-1/2 -translate-y-1/2"} text-ink/40 transition-colors group-focus-within:text-brand`} />
+        <Icon
+          size={16}
+          className={`absolute left-3.5 ${textarea ? "top-3.5" : "top-1/2 -translate-y-1/2"} text-ink/40 transition-colors group-focus-within:text-brand`}
+        />
         {textarea ? (
-          <textarea name={name} placeholder={placeholder} className={`${textareaClasses} ${error ? "!border-destructive !bg-destructive/5 focus:!ring-destructive/10" : ""}`} />
+          <textarea
+            name={name}
+            placeholder={placeholder}
+            className={`${textareaClasses} ${error ? "!border-destructive !bg-destructive/5 focus:!ring-destructive/10" : ""}`}
+          />
         ) : (
-          <input type={type} name={name} placeholder={placeholder} className={`${inputClasses} ${error ? "!border-destructive !bg-destructive/5 focus:!ring-destructive/10" : ""}`} />
+          <input
+            type={type}
+            name={name}
+            placeholder={placeholder}
+            className={`${inputClasses} ${error ? "!border-destructive !bg-destructive/5 focus:!ring-destructive/10" : ""}`}
+          />
         )}
       </div>
       {error && (
@@ -230,18 +364,51 @@ function IconField({ name, label, placeholder, icon: Icon, type = "text", textar
   );
 }
 
-function IconSelect({ name, label, icon: Icon, options, error }: { name: string; label: string; icon: typeof User; options: string[]; error?: string }) {
+function IconSelect({
+  name,
+  label,
+  icon: Icon,
+  options,
+  error,
+}: {
+  name: string;
+  label: string;
+  icon: typeof User;
+  options: string[];
+  error?: string;
+}) {
   const cls = `w-full appearance-none rounded-2xl bg-ink/5 border-2 border-transparent pl-11 pr-10 h-12 text-sm text-ink outline-none transition-all duration-300 focus:bg-white focus:border-brand focus:ring-4 focus:ring-brand/10 hover:bg-ink/10 ${error ? "!border-destructive !bg-destructive/5 focus:!ring-destructive/10" : ""}`;
   return (
     <label className="block relative group">
-      <span className="block text-xs font-semibold text-ink/80 mb-1.5 transition-colors group-focus-within:text-brand">{label}</span>
+      <span className="block text-xs font-semibold text-ink/80 mb-1.5 transition-colors group-focus-within:text-brand">
+        {label}
+      </span>
       <div className="relative">
-        <Icon size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-ink/40 transition-colors group-focus-within:text-brand pointer-events-none" />
+        <Icon
+          size={16}
+          className="absolute left-3.5 top-1/2 -translate-y-1/2 text-ink/40 transition-colors group-focus-within:text-brand pointer-events-none"
+        />
         <select name={name} defaultValue="" className={cls}>
-          <option value="" disabled className="text-ink/50">Select an option</option>
-          {options.map((o) => <option key={o} value={o} className="text-ink">{o}</option>)}
+          <option value="" disabled className="text-ink/50">
+            Select an option
+          </option>
+          {options.map((o) => (
+            <option key={o} value={o} className="text-ink">
+              {o}
+            </option>
+          ))}
         </select>
-        <svg className="absolute right-4 top-1/2 -translate-y-1/2 text-ink/40 pointer-events-none transition-transform group-hover:translate-y-0.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m6 9 6 6 6-6"/></svg>
+        <svg
+          className="absolute right-4 top-1/2 -translate-y-1/2 text-ink/40 pointer-events-none transition-transform group-hover:translate-y-0.5"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <path d="m6 9 6 6 6-6" />
+        </svg>
       </div>
       {error && (
         <span className="absolute -bottom-5 left-1 text-xs font-medium text-destructive animate-in fade-in slide-in-from-top-1">

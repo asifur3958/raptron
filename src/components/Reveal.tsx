@@ -1,7 +1,15 @@
 import { useEffect, useRef } from "react";
 
 /** Adds .is-visible to first-level children with `.reveal` when scrolled into view. */
-export function Reveal({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+export function Reveal({
+  children,
+  className = "",
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = ref.current;
@@ -15,10 +23,14 @@ export function Reveal({ children, className = "" }: { children: React.ReactNode
           }
         });
       },
-      { threshold: 0.12 }
+      { threshold: 0.12 },
     );
     el.querySelectorAll(".reveal").forEach((node) => io.observe(node));
     return () => io.disconnect();
   }, []);
-  return <div ref={ref} className={className}>{children}</div>;
+  return (
+    <div ref={ref} className={className} style={{ transitionDelay: `${delay}ms` }}>
+      {children}
+    </div>
+  );
 }

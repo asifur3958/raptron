@@ -51,7 +51,8 @@ export function CTABanner() {
               Ready to rethink your business technology?
             </h2>
             <p className="mt-4 text-white/85 text-lg max-w-xl">
-              Let's design the next phase of your operations — together. Start with a free 45-minute strategy session.
+              Let's design the next phase of your operations — together. Start with a free 45-minute
+              strategy session.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -74,9 +75,17 @@ export function CTABanner() {
   );
 }
 
-export function PrimaryCTA({ children, className = "" }: { children: ReactNode; className?: string }) {
+export function PrimaryCTA({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   return (
-    <span className={`inline-flex items-center gap-2 h-12 px-6 rounded-full bg-gradient-brand text-white font-semibold shadow-card hover:shadow-glow transition ${className}`}>
+    <span
+      className={`inline-flex items-center gap-2 h-12 px-6 rounded-full bg-gradient-brand text-white font-semibold shadow-card hover:shadow-glow transition ${className}`}
+    >
       {children}
     </span>
   );

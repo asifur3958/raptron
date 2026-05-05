@@ -8,7 +8,9 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-mist px-4">
       <div className="max-w-md text-center">
-        <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand">Error 404</div>
+        <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand">
+          Error 404
+        </div>
         <h1 className="mt-3 font-display text-6xl font-bold text-ink">Page not found</h1>
         <p className="mt-3 text-sm text-ink/60">
           The page you're looking for doesn't exist or has been moved.
@@ -38,13 +40,19 @@ export const Route = createRootRoute({
           "RAPTRON Digital Solutions LLC — ERP consulting, business process improvement, AI consulting and custom software development for ambitious businesses.",
       },
       { property: "og:title", content: "RAPTRON Digital Solutions" },
-      { property: "og:description", content: "Premium technology consulting — ERP, AI, and custom software." },
+      {
+        property: "og:description",
+        content: "Premium technology consulting — ERP, AI, and custom software.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" },
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", type: "image/png", href: "/favicon.png" }
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
     ],
   }),
   shellComponent: RootShell,

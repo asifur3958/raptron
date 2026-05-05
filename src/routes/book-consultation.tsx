@@ -8,7 +8,10 @@ export const Route = createFileRoute("/book-consultation")({
   head: () => ({
     meta: [
       { title: "Book Consultation — RAPTRON" },
-      { name: "description", content: "Book a free 45-minute strategy session with RAPTRON Digital Solutions." },
+      {
+        name: "description",
+        content: "Book a free 45-minute strategy session with RAPTRON Digital Solutions.",
+      },
     ],
   }),
   component: BookConsultationPage,
@@ -25,8 +28,14 @@ const schema = z.object({
 });
 
 function BookConsultationPage() {
-  const today = useMemo(() => { const d = new Date(); d.setHours(0,0,0,0); return d; }, []);
-  const [viewMonth, setViewMonth] = useState(() => new Date(today.getFullYear(), today.getMonth(), 1));
+  const today = useMemo(() => {
+    const d = new Date();
+    d.setHours(0, 0, 0, 0);
+    return d;
+  }, []);
+  const [viewMonth, setViewMonth] = useState(
+    () => new Date(today.getFullYear(), today.getMonth(), 1),
+  );
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
   const [step, setStep] = useState<"pick" | "form" | "done">("pick");
@@ -41,7 +50,9 @@ function BookConsultationPage() {
     const result = schema.safeParse(data);
     if (!result.success) {
       const errs: Record<string, string> = {};
-      result.error.issues.forEach((iss) => { errs[String(iss.path[0])] = iss.message; });
+      result.error.issues.forEach((iss) => {
+        errs[String(iss.path[0])] = iss.message;
+      });
       setErrors(errs);
       return;
     }
@@ -62,7 +73,9 @@ function BookConsultationPage() {
             <div className="relative">
               <div className="flex items-baseline gap-2">
                 <span className="font-display font-extrabold text-2xl">RAPTRON</span>
-                <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">Digital Solutions</span>
+                <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
+                  Digital Solutions
+                </span>
               </div>
               <h1 className="mt-12 font-display font-bold text-4xl lg:text-5xl leading-tight">
                 Book your free strategy session.
@@ -74,7 +87,9 @@ function BookConsultationPage() {
                   "Get a preliminary digital transformation roadmap",
                 ].map((b) => (
                   <li key={b} className="flex items-start gap-3">
-                    <span className="size-6 rounded-md bg-white/15 backdrop-blur flex items-center justify-center mt-0.5"><Check size={14} /></span>
+                    <span className="size-6 rounded-md bg-white/15 backdrop-blur flex items-center justify-center mt-0.5">
+                      <Check size={14} />
+                    </span>
                     <span className="text-white/90">{b}</span>
                   </li>
                 ))}
@@ -95,13 +110,25 @@ function BookConsultationPage() {
                     <Calendar size={20} className="text-brand" /> Pick a date
                   </h2>
                   <div className="flex items-center gap-1">
-                    <button onClick={() => setViewMonth(new Date(viewMonth.getFullYear(), viewMonth.getMonth() - 1, 1))} className="size-9 rounded-full border border-hairline flex items-center justify-center hover:border-brand/40 transition" aria-label="Previous month">
+                    <button
+                      onClick={() =>
+                        setViewMonth(new Date(viewMonth.getFullYear(), viewMonth.getMonth() - 1, 1))
+                      }
+                      className="size-9 rounded-full border border-hairline flex items-center justify-center hover:border-brand/40 transition"
+                      aria-label="Previous month"
+                    >
                       <ChevronLeft size={16} />
                     </button>
                     <div className="text-sm font-semibold w-32 text-center">
                       {viewMonth.toLocaleString("en-US", { month: "long", year: "numeric" })}
                     </div>
-                    <button onClick={() => setViewMonth(new Date(viewMonth.getFullYear(), viewMonth.getMonth() + 1, 1))} className="size-9 rounded-full border border-hairline flex items-center justify-center hover:border-brand/40 transition" aria-label="Next month">
+                    <button
+                      onClick={() =>
+                        setViewMonth(new Date(viewMonth.getFullYear(), viewMonth.getMonth() + 1, 1))
+                      }
+                      className="size-9 rounded-full border border-hairline flex items-center justify-center hover:border-brand/40 transition"
+                      aria-label="Next month"
+                    >
                       <ChevronRight size={16} />
                     </button>
                   </div>
@@ -109,22 +136,32 @@ function BookConsultationPage() {
 
                 <div className="mt-6 grid grid-cols-7 gap-1 text-center">
                   {["S", "M", "T", "W", "T", "F", "S"].map((d, i) => (
-                    <div key={i} className="font-mono text-[10px] uppercase tracking-widest text-ink/40 py-2">{d}</div>
+                    <div
+                      key={i}
+                      className="font-mono text-[10px] uppercase tracking-widest text-ink/40 py-2"
+                    >
+                      {d}
+                    </div>
                   ))}
                   {days.map(({ date, currentMonth }, i) => {
-                    const disabled = !currentMonth || date < today || date.getDay() === 0 || date.getDay() === 6;
-                    const isSelected = selectedDate && date.toDateString() === selectedDate.toDateString();
+                    const disabled =
+                      !currentMonth || date < today || date.getDay() === 0 || date.getDay() === 6;
+                    const isSelected =
+                      selectedDate && date.toDateString() === selectedDate.toDateString();
                     return (
                       <button
                         key={i}
                         disabled={disabled}
-                        onClick={() => { setSelectedDate(date); setSelectedSlot(null); }}
+                        onClick={() => {
+                          setSelectedDate(date);
+                          setSelectedSlot(null);
+                        }}
                         className={`aspect-square rounded-lg text-sm font-medium transition ${
                           isSelected
                             ? "bg-gradient-brand text-white shadow-card"
                             : disabled
-                            ? "text-ink/20 cursor-not-allowed"
-                            : "text-ink hover:bg-surface-tinted"
+                              ? "text-ink/20 cursor-not-allowed"
+                              : "text-ink hover:bg-surface-tinted"
                         }`}
                       >
                         {date.getDate()}
@@ -134,7 +171,9 @@ function BookConsultationPage() {
                 </div>
 
                 {/* Time slots */}
-                <div className={`mt-8 transition-opacity ${selectedDate ? "opacity-100" : "opacity-50 pointer-events-none"}`}>
+                <div
+                  className={`mt-8 transition-opacity ${selectedDate ? "opacity-100" : "opacity-50 pointer-events-none"}`}
+                >
                   <h3 className="font-display font-bold text-lg flex items-center gap-2">
                     <Clock size={18} className="text-brand" /> Select a time
                   </h3>
@@ -167,13 +206,24 @@ function BookConsultationPage() {
 
             {step === "form" && selectedDate && selectedSlot && (
               <form onSubmit={onConfirm} className="space-y-4">
-                <button type="button" onClick={() => setStep("pick")} className="text-sm font-medium text-ink/60 hover:text-brand inline-flex items-center gap-1">
+                <button
+                  type="button"
+                  onClick={() => setStep("pick")}
+                  className="text-sm font-medium text-ink/60 hover:text-brand inline-flex items-center gap-1"
+                >
                   <ChevronLeft size={14} /> Back
                 </button>
                 <div className="rounded-2xl bg-surface-tinted border border-hairline p-5">
-                  <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand">Selected slot</div>
+                  <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand">
+                    Selected slot
+                  </div>
                   <div className="mt-2 font-display font-bold text-xl text-ink">
-                    {selectedDate.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" })}
+                    {selectedDate.toLocaleDateString("en-US", {
+                      weekday: "long",
+                      month: "long",
+                      day: "numeric",
+                      year: "numeric",
+                    })}
                     <span className="text-brand"> · {selectedSlot}</span>
                   </div>
                 </div>
@@ -181,8 +231,16 @@ function BookConsultationPage() {
                 <Field name="company" label="Company Name" error={errors.company} />
                 <Field name="email" label="Work Email" type="email" error={errors.email} />
                 <Field name="phone" label="Phone" type="tel" error={errors.phone} />
-                <Field name="message" label="Brief requirement (optional)" textarea error={errors.message} />
-                <button type="submit" className="w-full h-12 rounded-full bg-gradient-brand text-white font-semibold shadow-card hover:shadow-glow transition">
+                <Field
+                  name="message"
+                  label="Brief requirement (optional)"
+                  textarea
+                  error={errors.message}
+                />
+                <button
+                  type="submit"
+                  className="w-full h-12 rounded-full bg-gradient-brand text-white font-semibold shadow-card hover:shadow-glow transition"
+                >
                   Confirm Booking
                 </button>
               </form>

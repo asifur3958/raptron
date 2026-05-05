@@ -1,9 +1,9 @@
-import server from '../dist/server/server.js';
+import server from "../dist/server/server.js";
 
 export const config = {
-  runtime: 'edge',
+  runtime: "edge",
 };
 
-export default function(request, event) {
+export default function (request, event) {
   return server.fetch(request, event);
 }
