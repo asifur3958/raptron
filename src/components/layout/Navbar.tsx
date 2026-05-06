@@ -1,6 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, Calendar, ArrowRight, ChevronDown, Sparkles } from "lucide-react";
+import {
+  Menu,
+  X,
+  Calendar,
+  ArrowRight,
+  ChevronDown,
+  Sparkles,
+} from "lucide-react";
 import { SERVICES } from "@/lib/constants";
 
 export function Navbar() {
@@ -16,7 +23,11 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
     return () => {
       document.body.style.overflow = "";
     };
@@ -45,7 +56,10 @@ export function Navbar() {
               className="px-4 h-10 inline-flex items-center gap-1 text-sm font-medium text-ink/80 hover:text-ink rounded-full transition"
             >
               Services{" "}
-              <ChevronDown size={14} className={`transition ${servicesOpen ? "rotate-180" : ""}`} />
+              <ChevronDown
+                size={14}
+                className={`transition ${servicesOpen ? "rotate-180" : ""}`}
+              />
             </Link>
             <div
               className={`absolute left-1/2 -translate-x-[40%] top-[calc(100%+1rem)] w-[900px] transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] origin-top-left ${
@@ -87,18 +101,20 @@ export function Navbar() {
                 </div>
 
                 <div className="w-[320px] bg-ink relative overflow-hidden p-8 flex flex-col justify-between group">
-                  <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay" />
+                  <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:20px_20px] opacity-30 mix-blend-overlay" />
                   <div className="absolute -top-32 -right-32 w-64 h-64 bg-brand/30 blur-[60px] rounded-full group-hover:scale-150 transition-transform duration-700" />
 
                   <div className="relative z-10">
                     <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-medium text-white mb-6">
-                      <Sparkles size={12} className="text-brand-2" /> Transformation
+                      <Sparkles size={12} className="text-brand-2" />{" "}
+                      Transformation
                     </div>
                     <h4 className="font-display text-2xl font-bold text-white leading-snug mb-3">
                       Ready to scale your operations?
                     </h4>
                     <p className="text-white/60 text-sm leading-relaxed mb-8">
-                      Book a discovery call to map out your digital infrastructure roadmap.
+                      Book a discovery call to map out your digital
+                      infrastructure roadmap.
                     </p>
                   </div>
 
@@ -106,7 +122,9 @@ export function Navbar() {
                     to="/book-consultation"
                     className="relative z-10 w-full flex items-center justify-between p-4 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/10 transition-colors group/btn"
                   >
-                    <span className="font-semibold text-white text-sm">Book Consultation</span>
+                    <span className="font-semibold text-white text-sm">
+                      Book Consultation
+                    </span>
                     <div className="size-8 rounded-full bg-white text-ink flex items-center justify-center group-hover/btn:scale-110 transition-transform">
                       <ArrowRight size={14} />
                     </div>
@@ -155,7 +173,11 @@ export function Navbar() {
         </div>
         <div className="p-6 space-y-1">
           <MobileLink to="/" label="Home" onClick={() => setOpen(false)} />
-          <MobileLink to="/services" label="Services" onClick={() => setOpen(false)} />
+          <MobileLink
+            to="/services"
+            label="Services"
+            onClick={() => setOpen(false)}
+          />
           <div className="pl-4 space-y-1 mb-2">
             {SERVICES.map((s) => (
               <Link
@@ -169,8 +191,16 @@ export function Navbar() {
               </Link>
             ))}
           </div>
-          <MobileLink to="/about" label="About" onClick={() => setOpen(false)} />
-          <MobileLink to="/contact" label="Contact" onClick={() => setOpen(false)} />
+          <MobileLink
+            to="/about"
+            label="About"
+            onClick={() => setOpen(false)}
+          />
+          <MobileLink
+            to="/contact"
+            label="Contact"
+            onClick={() => setOpen(false)}
+          />
           <div className="pt-6 space-y-3">
             <Link
               to="/request-demo"
@@ -198,7 +228,15 @@ function NavItem({ to, label }: { to: string; label: string }) {
   );
 }
 
-function MobileLink({ to, label, onClick }: { to: string; label: string; onClick: () => void }) {
+function MobileLink({
+  to,
+  label,
+  onClick,
+}: {
+  to: string;
+  label: string;
+  onClick: () => void;
+}) {
   return (
     <Link
       to={to}

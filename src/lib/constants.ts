@@ -60,13 +60,22 @@ export const SERVICES: Service[] = [
       "Stakeholder alignment workshops",
     ],
     process: [
-      { title: "Discovery", description: "Deep interviews across functions and operations." },
-      { title: "Analysis", description: "Map current-state inefficiencies and capability gaps." },
+      {
+        title: "Discovery",
+        description: "Deep interviews across functions and operations.",
+      },
+      {
+        title: "Analysis",
+        description: "Map current-state inefficiencies and capability gaps.",
+      },
       {
         title: "Architecture",
         description: "Design future-state systems and selection shortlist.",
       },
-      { title: "Roadmap", description: "Phased plan with budgets, owners, and milestones." },
+      {
+        title: "Roadmap",
+        description: "Phased plan with budgets, owners, and milestones.",
+      },
     ],
     outcomes: [
       {
@@ -106,14 +115,29 @@ export const SERVICES: Service[] = [
       "Hypercare & post-go-live support",
     ],
     process: [
-      { title: "Plan", description: "Project charter, RACI, and cutover strategy." },
-      { title: "Build", description: "Configure, integrate, and validate every module." },
+      {
+        title: "Plan",
+        description: "Project charter, RACI, and cutover strategy.",
+      },
+      {
+        title: "Build",
+        description: "Configure, integrate, and validate every module.",
+      },
       { title: "Test", description: "UAT cycles with real-world scenarios." },
-      { title: "Launch", description: "Cutover, hypercare, and adoption tracking." },
+      {
+        title: "Launch",
+        description: "Cutover, hypercare, and adoption tracking.",
+      },
     ],
     outcomes: [
-      { title: "On-time go-live", description: "Disciplined execution against clear milestones." },
-      { title: "Zero-loss migration", description: "Verified data quality across every cutover." },
+      {
+        title: "On-time go-live",
+        description: "Disciplined execution against clear milestones.",
+      },
+      {
+        title: "Zero-loss migration",
+        description: "Verified data quality across every cutover.",
+      },
       {
         title: "Adoption-ready teams",
         description: "Trained, equipped, and confident from day one.",
@@ -129,7 +153,11 @@ export const SERVICES: Service[] = [
     description:
       "Custom modules, integrations, and automations that reshape your ERP around your real operating model.",
     icon: Puzzle,
-    bullets: ["Custom module engineering", "Workflow automation", "Third-party API integrations"],
+    bullets: [
+      "Custom module engineering",
+      "Workflow automation",
+      "Third-party API integrations",
+    ],
     whatsIncluded: [
       "Custom module development",
       "Workflow automation & process alignment",
@@ -139,10 +167,22 @@ export const SERVICES: Service[] = [
       "Data sync between systems of record",
     ],
     process: [
-      { title: "Scope", description: "Translate operational gaps into engineering specs." },
-      { title: "Design", description: "Architect modules and integration patterns." },
-      { title: "Develop", description: "Build, test, and harden customizations." },
-      { title: "Optimize", description: "Tune performance and document the system." },
+      {
+        title: "Scope",
+        description: "Translate operational gaps into engineering specs.",
+      },
+      {
+        title: "Design",
+        description: "Architect modules and integration patterns.",
+      },
+      {
+        title: "Develop",
+        description: "Build, test, and harden customizations.",
+      },
+      {
+        title: "Optimize",
+        description: "Tune performance and document the system.",
+      },
     ],
     outcomes: [
       {
@@ -182,18 +222,36 @@ export const SERVICES: Service[] = [
       "Continuous improvement governance",
     ],
     process: [
-      { title: "Observe", description: "Walk the process. Measure where time is lost." },
-      { title: "Diagnose", description: "Quantify bottlenecks and rework loops." },
-      { title: "Redesign", description: "Re-architect flows for speed and clarity." },
-      { title: "Operationalize", description: "Embed SOPs, KPIs, and review cadences." },
+      {
+        title: "Observe",
+        description: "Walk the process. Measure where time is lost.",
+      },
+      {
+        title: "Diagnose",
+        description: "Quantify bottlenecks and rework loops.",
+      },
+      {
+        title: "Redesign",
+        description: "Re-architect flows for speed and clarity.",
+      },
+      {
+        title: "Operationalize",
+        description: "Embed SOPs, KPIs, and review cadences.",
+      },
     ],
     outcomes: [
-      { title: "Productivity gains", description: "Measurable lift in throughput per role." },
+      {
+        title: "Productivity gains",
+        description: "Measurable lift in throughput per role.",
+      },
       {
         title: "Standardized operations",
         description: "Consistent execution across teams and sites.",
       },
-      { title: "Data-driven decisions", description: "Operating rhythm built on live KPIs." },
+      {
+        title: "Data-driven decisions",
+        description: "Operating rhythm built on live KPIs.",
+      },
     ],
   },
   {
@@ -219,15 +277,36 @@ export const SERVICES: Service[] = [
       "DevOps, CI/CD, and observability",
     ],
     process: [
-      { title: "Define", description: "Translate goals into product specs and architecture." },
-      { title: "Design", description: "Wireframes, UX flows, and design systems." },
-      { title: "Engineer", description: "Iterative builds with production-grade quality bars." },
-      { title: "Operate", description: "Launch, monitor, and evolve in production." },
+      {
+        title: "Define",
+        description: "Translate goals into product specs and architecture.",
+      },
+      {
+        title: "Design",
+        description: "Wireframes, UX flows, and design systems.",
+      },
+      {
+        title: "Engineer",
+        description: "Iterative builds with production-grade quality bars.",
+      },
+      {
+        title: "Operate",
+        description: "Launch, monitor, and evolve in production.",
+      },
     ],
     outcomes: [
-      { title: "Scalable custom systems", description: "Architecture engineered for growth." },
-      { title: "Cross-platform reach", description: "Reach customers wherever they work." },
-      { title: "Full ownership & IP", description: "You own the code, the data, and the roadmap." },
+      {
+        title: "Scalable custom systems",
+        description: "Architecture engineered for growth.",
+      },
+      {
+        title: "Cross-platform reach",
+        description: "Reach customers wherever they work.",
+      },
+      {
+        title: "Full ownership & IP",
+        description: "You own the code, the data, and the roadmap.",
+      },
     ],
   },
   {
@@ -239,7 +318,11 @@ export const SERVICES: Service[] = [
     description:
       "Pragmatic AI strategy and integration — embedding predictive intelligence into the systems your business already runs on.",
     icon: BrainCircuit,
-    bullets: ["AI readiness & strategy", "Predictive analytics", "AI inside ERP & workflows"],
+    bullets: [
+      "AI readiness & strategy",
+      "Predictive analytics",
+      "AI inside ERP & workflows",
+    ],
     whatsIncluded: [
       "AI readiness & strategy development",
       "Use-case identification & ROI mapping",
@@ -249,15 +332,36 @@ export const SERVICES: Service[] = [
       "Responsible AI governance",
     ],
     process: [
-      { title: "Assess", description: "Audit data maturity and identify high-ROI use cases." },
-      { title: "Prototype", description: "Validate value through targeted pilots." },
-      { title: "Integrate", description: "Embed AI into core systems and processes." },
-      { title: "Scale", description: "Productionize, monitor, and govern responsibly." },
+      {
+        title: "Assess",
+        description: "Audit data maturity and identify high-ROI use cases.",
+      },
+      {
+        title: "Prototype",
+        description: "Validate value through targeted pilots.",
+      },
+      {
+        title: "Integrate",
+        description: "Embed AI into core systems and processes.",
+      },
+      {
+        title: "Scale",
+        description: "Productionize, monitor, and govern responsibly.",
+      },
     ],
     outcomes: [
-      { title: "High-ROI AI opportunities", description: "Backed by data, not hype." },
-      { title: "Reduced operational overhead", description: "Automate decisions, not just tasks." },
-      { title: "Predictive business insights", description: "See around corners with confidence." },
+      {
+        title: "High-ROI AI opportunities",
+        description: "Backed by data, not hype.",
+      },
+      {
+        title: "Reduced operational overhead",
+        description: "Automate decisions, not just tasks.",
+      },
+      {
+        title: "Predictive business insights",
+        description: "See around corners with confidence.",
+      },
     ],
   },
 ];
@@ -303,7 +407,10 @@ export const TESTIMONIALS = [
 ];
 
 export const PROCESS_STEPS = [
-  { title: "Discovery & Audit", description: "Understand the business, the people, the data." },
+  {
+    title: "Discovery & Audit",
+    description: "Understand the business, the people, the data.",
+  },
   {
     title: "Solution Architecture",
     description: "Design systems and processes that fit how you operate.",
@@ -316,7 +423,10 @@ export const PROCESS_STEPS = [
     title: "Training & Change Management",
     description: "Equip teams to own the new way of working.",
   },
-  { title: "Optimization & Growth", description: "Measure, iterate, and compound the value." },
+  {
+    title: "Optimization & Growth",
+    description: "Measure, iterate, and compound the value.",
+  },
 ];
 
 export const VALUES = [

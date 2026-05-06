@@ -5,14 +5,18 @@ import {
   Sparkles,
   Workflow,
   BrainCircuit,
-  Quote,
   Star,
-  ArrowUpRight,
   Zap,
   Database,
   Terminal,
 } from "lucide-react";
-import { SERVICES, INDUSTRIES, STATS, TESTIMONIALS, PROCESS_STEPS } from "@/lib/constants";
+import {
+  SERVICES,
+  INDUSTRIES,
+  STATS,
+  TESTIMONIALS,
+  PROCESS_STEPS,
+} from "@/lib/constants";
 import { CTABanner } from "@/components/layout/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { useEffect, useRef, useState } from "react";
@@ -34,22 +38,6 @@ export const Route = createFileRoute("/")({
 function HomePage() {
   return (
     <main className="w-full bg-white overflow-x-hidden">
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-        @keyframes marquee {
-          0% { transform: translateX(0%); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-          animation: marquee 35s linear infinite;
-        }
-        .animate-marquee:hover {
-          animation-play-state: paused;
-        }
-      `,
-        }}
-      />
       <Hero />
       <IndustriesTicker />
       <TechEcosystem />
@@ -89,8 +77,8 @@ function Hero() {
           </h1>
 
           <p className="mt-6 text-xl sm:text-2xl text-ink/70 max-w-3xl mx-auto leading-relaxed">
-            We merge ERP consulting, AI automation, and custom software to build the operational
-            backbone of tomorrow's industry leaders.
+            We merge ERP consulting, AI automation, and custom software to build
+            the operational backbone of tomorrow's industry leaders.
           </p>
 
           <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -120,18 +108,21 @@ function Hero() {
                   ERP Architecture
                 </h3>
                 <p className="text-white/60 text-base max-w-sm">
-                  Orchestrating complex enterprise resource planning deployments with zero downtime
-                  and total strategic alignment.
+                  Orchestrating complex enterprise resource planning deployments
+                  with zero downtime and total strategic alignment.
                 </p>
               </div>
             </div>
             <div className="col-span-1 bg-gradient-brand rounded-2xl p-8 lg:p-10 relative overflow-hidden group">
-              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay" />
+              <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:20px_20px] opacity-50 mix-blend-overlay" />
               <div className="relative z-10">
                 <BrainCircuit className="text-white mb-8" size={40} />
-                <h3 className="text-white font-display text-3xl font-bold mb-3">AI Agents</h3>
+                <h3 className="text-white font-display text-3xl font-bold mb-3">
+                  AI Agents
+                </h3>
                 <p className="text-white/80 text-base">
-                  Deploying autonomous intelligence into your core operational workflows.
+                  Deploying autonomous intelligence into your core operational
+                  workflows.
                 </p>
               </div>
             </div>
@@ -156,15 +147,17 @@ function IndustriesTicker() {
       <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
       <div className="animate-marquee flex gap-16 px-6 whitespace-nowrap">
-        {[...INDUSTRIES, ...INDUSTRIES, ...INDUSTRIES].map(({ name, icon: Icon }, i) => (
-          <div
-            key={`${name}-${i}`}
-            className="flex items-center gap-3 text-ink/60 font-semibold text-lg hover:text-brand transition-colors cursor-default"
-          >
-            <Icon size={24} className="text-brand/50" />
-            <span>{name}</span>
-          </div>
-        ))}
+        {[...INDUSTRIES, ...INDUSTRIES, ...INDUSTRIES].map(
+          ({ name, icon: Icon }, i) => (
+            <div
+              key={`${name}-${i}`}
+              className="flex items-center gap-3 text-ink/60 font-semibold text-lg hover:text-brand transition-colors cursor-default"
+            >
+              <Icon size={24} className="text-brand/50" />
+              <span>{name}</span>
+            </div>
+          ),
+        )}
       </div>
     </div>
   );
@@ -220,7 +213,9 @@ function ValueBento() {
             <h2 className="font-display font-extrabold text-5xl sm:text-6xl tracking-tight text-ink">
               Beyond Implementation.
             </h2>
-            <p className="mt-6 text-xl text-ink/60">We engineer unfair competitive advantages.</p>
+            <p className="mt-6 text-xl text-ink/60">
+              We engineer unfair competitive advantages.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 auto-rows-[320px]">
@@ -230,10 +225,13 @@ function ValueBento() {
                 <Database size={300} />
               </div>
               <div className="relative z-10">
-                <h3 className="font-display text-4xl font-bold text-ink">Data Supremacy</h3>
+                <h3 className="font-display text-4xl font-bold text-ink">
+                  Data Supremacy
+                </h3>
                 <p className="mt-4 text-ink/65 max-w-md text-lg leading-relaxed">
-                  We don't just migrate data; we structure it to feed predictive AI models, automate
-                  reporting, and power real-time executive dashboards.
+                  We don't just migrate data; we structure it to feed predictive
+                  AI models, automate reporting, and power real-time executive
+                  dashboards.
                 </p>
               </div>
             </div>
@@ -242,9 +240,12 @@ function ValueBento() {
               <div className="absolute inset-0 bg-gradient-brand opacity-0 group-hover:opacity-20 transition-opacity duration-700" />
               <div className="relative z-10">
                 <Zap className="text-brand-2 mb-8" size={40} />
-                <h3 className="font-display text-3xl font-bold text-white">Velocity</h3>
+                <h3 className="font-display text-3xl font-bold text-white">
+                  Velocity
+                </h3>
                 <p className="mt-4 text-white/60 text-lg leading-relaxed">
-                  Shipping custom modules 4x faster with our proprietary enterprise frameworks.
+                  Shipping custom modules 4x faster with our proprietary
+                  enterprise frameworks.
                 </p>
               </div>
             </div>
@@ -256,16 +257,19 @@ function ValueBento() {
               />
               <h3 className="font-display text-3xl font-bold">Code Quality</h3>
               <p className="mt-4 text-white/90 text-lg leading-relaxed">
-                Enterprise-grade architecture built to scale securely and continuously.
+                Enterprise-grade architecture built to scale securely and
+                continuously.
               </p>
             </div>
             {/* Box 4 */}
             <div className="md:col-span-2 rounded-[2rem] border border-hairline bg-white shadow-sm p-12 relative overflow-hidden group hover:shadow-card transition-all duration-500 hover:-translate-y-1">
               <div className="flex flex-col justify-center h-full max-w-xl relative z-10">
-                <h3 className="font-display text-4xl font-bold text-ink">Total Ownership</h3>
+                <h3 className="font-display text-4xl font-bold text-ink">
+                  Total Ownership
+                </h3>
                 <p className="mt-4 text-ink/65 text-lg leading-relaxed">
-                  From initial process audit to post-go-live optimization. One accountable team,
-                  zero handoffs, absolute transparency.
+                  From initial process audit to post-go-live optimization. One
+                  accountable team, zero handoffs, absolute transparency.
                 </p>
               </div>
               <div className="absolute right-0 top-0 bottom-0 w-1/2 bg-dot-grid opacity-30 [mask-image:linear-gradient(to_left,black,transparent)] group-hover:opacity-50 transition-opacity duration-700" />
@@ -282,7 +286,7 @@ function ServicesShowcase() {
 
   return (
     <section className="py-32 bg-ink text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20 mix-blend-overlay" />
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:16px_16px] opacity-40 mix-blend-overlay" />
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand/10 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
@@ -310,7 +314,9 @@ function ServicesShowcase() {
                     <div
                       className={`overflow-hidden transition-all duration-500 ease-in-out ${activeIdx === i ? "max-h-40 opacity-100 mt-4" : "max-h-0 opacity-0"}`}
                     >
-                      <p className="text-white/60 mb-5 leading-relaxed">{s.tagline}</p>
+                      <p className="text-white/60 mb-5 leading-relaxed">
+                        {s.tagline}
+                      </p>
                       <Link
                         to="/services/$slug"
                         params={{ slug: s.slug }}
@@ -345,8 +351,15 @@ function ServicesShowcase() {
                       </h4>
                       <ul className="space-y-4 text-left inline-block">
                         {s.bullets.map((b) => (
-                          <li key={b} className="text-white/80 flex items-center gap-3 text-lg">
-                            <Sparkles size={16} className="text-brand-2 shrink-0" /> {b}
+                          <li
+                            key={b}
+                            className="text-white/80 flex items-center gap-3 text-lg"
+                          >
+                            <Sparkles
+                              size={16}
+                              className="text-brand-2 shrink-0"
+                            />{" "}
+                            {b}
                           </li>
                         ))}
                       </ul>
@@ -384,7 +397,10 @@ function ProcessTimeline() {
 
             <div className="grid md:grid-cols-5 gap-10 md:gap-4 relative z-10">
               {PROCESS_STEPS.map((step, i) => (
-                <div key={step.title} className="relative group flex flex-col md:items-center">
+                <div
+                  key={step.title}
+                  className="relative group flex flex-col md:items-center"
+                >
                   {/* Glowing Node */}
                   <div className="absolute -top-3 md:-top-4 left-0 md:left-1/2 md:-translate-x-1/2 size-8 rounded-full bg-white border-4 border-mist flex items-center justify-center group-hover:border-brand transition-colors duration-300 shadow-sm z-20">
                     <div className="size-2.5 rounded-full bg-brand group-hover:scale-150 transition-transform duration-300 group-hover:shadow-[0_0_10px_#5509D9]" />
@@ -430,7 +446,12 @@ function StatsSection() {
                 key={s.label}
                 className="md:pl-8 first:pl-0 flex flex-col items-center md:items-start"
               >
-                <Counter value={s.value} suffix={s.suffix} label={s.label} delay={i * 100} />
+                <Counter
+                  value={s.value}
+                  suffix={s.suffix}
+                  label={s.label}
+                  delay={i * 100}
+                />
               </div>
             ))}
           </div>
@@ -486,7 +507,9 @@ function Counter({
         {count}
         <span className="text-brand-2">{suffix}</span>
       </div>
-      <div className="mt-4 text-base lg:text-lg font-medium text-white/70">{label}</div>
+      <div className="mt-4 text-base lg:text-lg font-medium text-white/70">
+        {label}
+      </div>
     </div>
   );
 }
@@ -524,13 +547,17 @@ function TestimonialMarquee() {
                   <Star key={k} size={20} fill="currentColor" />
                 ))}
               </div>
-              <p className="text-xl text-ink/80 font-medium mb-10 leading-relaxed">"{t.quote}"</p>
+              <p className="text-xl text-ink/80 font-medium mb-10 leading-relaxed">
+                "{t.quote}"
+              </p>
               <div className="flex items-center gap-5">
                 <div className="size-14 rounded-full bg-gradient-brand text-white flex items-center justify-center font-display font-bold text-2xl shadow-sm">
                   {t.name.charAt(0)}
                 </div>
                 <div>
-                  <div className="font-display font-bold text-xl text-ink">{t.name}</div>
+                  <div className="font-display font-bold text-xl text-ink">
+                    {t.name}
+                  </div>
                   <div className="text-base text-ink/60 mt-1">
                     {t.title}, {t.company}
                   </div>

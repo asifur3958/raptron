@@ -7,8 +7,6 @@ import {
   Phone,
   Building2,
   Pencil,
-  Languages,
-  HelpCircle,
   Check,
   ArrowRight,
   Sparkles,
@@ -125,8 +123,9 @@ function RequestDemoPage() {
                   An ERP, unlike any other.
                 </p>
                 <p className="text-white/70 text-lg max-w-md font-sans leading-relaxed">
-                  Experience how RAPTRON transforms your business vision into reality. Designed to
-                  evolve with your operations today and tomorrow.
+                  Experience how RAPTRON transforms your business vision into
+                  reality. Designed to evolve with your operations today and
+                  tomorrow.
                 </p>
               </div>
 
@@ -172,12 +171,15 @@ function RequestDemoPage() {
                       Request your Demo
                     </h2>
                     <p className="text-ink/60 text-sm lg:text-base">
-                      Tell us about your organization and requirements, and we'll tailor the
-                      experience.
+                      Tell us about your organization and requirements, and
+                      we'll tailor the experience.
                     </p>
                   </div>
 
-                  <form onSubmit={onSubmit} className="grid sm:grid-cols-2 gap-x-5 gap-y-4">
+                  <form
+                    onSubmit={onSubmit}
+                    className="grid sm:grid-cols-2 gap-x-5 gap-y-4"
+                  >
                     <IconField
                       name="name"
                       label="Full name"
@@ -274,7 +276,10 @@ function RequestDemoPage() {
                     <div className="sm:col-span-2 mt-2 pt-4 border-t border-hairline flex flex-col sm:flex-row items-center justify-between gap-4">
                       <p className="text-xs text-ink/50 max-w-[200px] text-center sm:text-left">
                         By clicking Request Demo, you agree to our{" "}
-                        <a href="#" className="underline hover:text-brand transition-colors">
+                        <a
+                          href="#"
+                          className="underline hover:text-brand transition-colors"
+                        >
                           Privacy Policy
                         </a>
                         .

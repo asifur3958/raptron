@@ -16,7 +16,10 @@ export const Route = createFileRoute("/services/$slug")({
           { title: `${loaderData.service.title} — RAPTRON` },
           { name: "description", content: loaderData.service.description },
           { property: "og:title", content: loaderData.service.title },
-          { property: "og:description", content: loaderData.service.description },
+          {
+            property: "og:description",
+            content: loaderData.service.description,
+          },
         ]
       : [],
   }),
@@ -26,7 +29,10 @@ export const Route = createFileRoute("/services/$slug")({
   notFoundComponent: () => (
     <div className="pt-32 pb-20 text-center">
       <h1 className="font-display text-4xl font-bold">Service not found</h1>
-      <Link to="/services" className="mt-6 inline-block text-brand font-semibold">
+      <Link
+        to="/services"
+        className="mt-6 inline-block text-brand font-semibold"
+      >
         View all services →
       </Link>
     </div>
@@ -80,7 +86,8 @@ function ServicePage() {
                   A scope built around outcomes.
                 </h2>
                 <p className="mt-4 text-ink/65">
-                  Every engagement is tailored — these are the building blocks we draw from.
+                  Every engagement is tailored — these are the building blocks
+                  we draw from.
                 </p>
               </div>
               <div
@@ -126,7 +133,9 @@ function ServicePage() {
                   <div className="size-10 rounded-lg bg-gradient-brand text-white font-display font-bold flex items-center justify-center">
                     0{i + 1}
                   </div>
-                  <h4 className="mt-4 font-display font-bold text-lg">{step.title}</h4>
+                  <h4 className="mt-4 font-display font-bold text-lg">
+                    {step.title}
+                  </h4>
                   <p className="mt-2 text-sm text-ink/65">{step.description}</p>
                 </div>
               ))}
@@ -157,7 +166,9 @@ function ServicePage() {
                   <div className="size-11 rounded-xl bg-gradient-brand text-white flex items-center justify-center">
                     <TrendingUp size={20} />
                   </div>
-                  <h4 className="mt-5 font-display font-bold text-xl">{o.title}</h4>
+                  <h4 className="mt-5 font-display font-bold text-xl">
+                    {o.title}
+                  </h4>
                   <p className="mt-3 text-ink/65 text-sm">{o.description}</p>
                 </div>
               ))}
@@ -190,7 +201,9 @@ function ServicePage() {
                   <div className="size-11 rounded-xl bg-gradient-brand text-white flex items-center justify-center">
                     <RIcon size={20} />
                   </div>
-                  <h4 className="mt-4 font-display font-bold text-lg">{s.title}</h4>
+                  <h4 className="mt-4 font-display font-bold text-lg">
+                    {s.title}
+                  </h4>
                   <p className="mt-2 text-sm text-ink/65">{s.tagline}</p>
                   <div className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand">
                     Learn more <ArrowRight size={14} />

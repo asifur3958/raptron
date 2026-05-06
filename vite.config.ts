@@ -11,7 +11,6 @@ export default defineConfig({
     tailwindcss(),
     tsConfigPaths({ projects: ["./tsconfig.json"] }),
     tanstackStart({
-
       importProtection: {
         behavior: "error",
         client: {

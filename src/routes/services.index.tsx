@@ -16,7 +16,10 @@ export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
       { title: "Services — RAPTRON Digital Solutions" },
-      { name: "description", content: "ERP consulting, AI, and custom software." },
+      {
+        name: "description",
+        content: "ERP consulting, AI, and custom software.",
+      },
     ],
   }),
   component: ServicesPage,
@@ -37,7 +40,7 @@ function ServicesPage() {
 function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center pt-32 pb-20 overflow-hidden bg-mist">
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] mix-blend-overlay" />
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(85,9,217,0.04)_1px,transparent_1px)] bg-[size:20px_20px] opacity-80 mix-blend-overlay" />
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand/15 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="relative z-20 w-full max-w-7xl mx-auto px-6 lg:px-10">
@@ -52,17 +55,21 @@ function Hero() {
 
             <h1 className="font-display font-extrabold text-6xl sm:text-7xl lg:text-[5.5rem] leading-[0.9] tracking-tighter text-ink mb-8">
               Systematic <br />
-              <span className="italic font-light text-brand-deep">dominance.</span>
+              <span className="italic font-light text-brand-deep">
+                dominance.
+              </span>
             </h1>
 
             <p className="text-xl lg:text-2xl text-ink/60 max-w-xl font-light leading-relaxed mb-12">
-              We don't sell hours. We deploy engineering teams to re-architect how your business
-              operates, scales, and dominates its sector.
+              We don't sell hours. We deploy engineering teams to re-architect
+              how your business operates, scales, and dominates its sector.
             </p>
 
             <div className="flex gap-4">
               <button
-                onClick={() => window.scrollTo({ top: 800, behavior: "smooth" })}
+                onClick={() =>
+                  window.scrollTo({ top: 800, behavior: "smooth" })
+                }
                 className="h-16 px-8 rounded-full bg-ink text-white font-semibold text-lg hover:scale-105 transition-transform flex items-center gap-3 shadow-lg hover:shadow-glow"
               >
                 Explore Services <ArrowRight size={20} />
@@ -78,7 +85,9 @@ function Hero() {
               {/* Floating elements to break grid */}
               <div className="absolute top-20 left-0 bg-white/80 backdrop-blur-xl p-6 rounded-[2rem] border border-white/40 shadow-2xl rotate-[-5deg] hover:rotate-0 transition-transform duration-500 z-20">
                 <Database size={32} className="text-brand mb-4" />
-                <div className="font-bold text-xl text-ink">Zero-Loss Migration</div>
+                <div className="font-bold text-xl text-ink">
+                  Zero-Loss Migration
+                </div>
               </div>
 
               <div className="absolute bottom-32 right-0 bg-ink/90 backdrop-blur-xl p-6 rounded-[2rem] border border-white/10 shadow-2xl rotate-[5deg] hover:rotate-0 transition-transform duration-500 text-white z-20">
@@ -181,12 +190,17 @@ function StackedServices() {
                       </h4>
                       <ul className="space-y-6">
                         {s.whatsIncluded.slice(0, 4).map((item, idx) => (
-                          <li key={idx} className="flex items-start gap-4 text-lg">
+                          <li
+                            key={idx}
+                            className="flex items-start gap-4 text-lg"
+                          >
                             <CheckCircle2
                               size={24}
                               className={`shrink-0 mt-0.5 ${isDark ? "text-brand-2" : "text-brand"}`}
                             />
-                            <span className="opacity-90 leading-tight">{item}</span>
+                            <span className="opacity-90 leading-tight">
+                              {item}
+                            </span>
                           </li>
                         ))}
                       </ul>
@@ -205,7 +219,7 @@ function StackedServices() {
 function VerticalProcess() {
   return (
     <section className="py-32 bg-ink text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10 mix-blend-overlay" />
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:16px_16px] opacity-40 mix-blend-overlay" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-brand-deep/20 rounded-full blur-[200px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
@@ -276,12 +290,14 @@ function AsymmetricIndustries() {
             <div>
               <h2 className="font-display font-extrabold text-6xl lg:text-[5.5rem] tracking-tight text-ink leading-none">
                 Domains of <br />
-                <span className="text-transparent bg-clip-text bg-gradient-brand">Expertise.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-brand">
+                  Expertise.
+                </span>
               </h2>
             </div>
             <p className="text-2xl text-ink/60 max-w-lg font-light leading-relaxed">
-              We don't do generic tech. We build for the specific operational realities of these
-              sectors.
+              We don't do generic tech. We build for the specific operational
+              realities of these sectors.
             </p>
           </div>
         </Reveal>
@@ -291,7 +307,11 @@ function AsymmetricIndustries() {
             const Icon = ind.icon;
             const spanClass = spanClasses[i % spanClasses.length];
             return (
-              <Reveal key={ind.name} delay={i * 50} className={`${spanClass} h-full`}>
+              <Reveal
+                key={ind.name}
+                delay={i * 50}
+                className={`${spanClass} h-full`}
+              >
                 <div className="w-full h-full rounded-[2.5rem] bg-surface-tinted border border-hairline p-10 relative overflow-hidden group hover:shadow-2xl transition-all duration-700 hover:border-brand/40 flex flex-col justify-end min-h-[250px] hover:-translate-y-1">
                   <div className="absolute -top-10 -right-10 text-ink/5 group-hover:text-brand/10 transition-colors duration-700 group-hover:scale-110 transform origin-top-right pointer-events-none">
                     <Icon size={200} />
@@ -300,7 +320,9 @@ function AsymmetricIndustries() {
                     <div className="size-16 rounded-2xl bg-white text-brand flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition-transform duration-500 border border-hairline group-hover:bg-brand group-hover:text-white">
                       <Icon size={32} />
                     </div>
-                    <h3 className="font-display font-bold text-3xl text-ink">{ind.name}</h3>
+                    <h3 className="font-display font-bold text-3xl text-ink">
+                      {ind.name}
+                    </h3>
                   </div>
                 </div>
               </Reveal>

@@ -98,16 +98,24 @@ function ContactPage() {
                 </h1>
 
                 <p className="text-white/70 text-lg max-w-md font-sans">
-                  Whether you need a complete ERP overhaul or a cutting-edge AI implementation,
-                  we're ready to accelerate your business.
+                  Whether you need a complete ERP overhaul or a cutting-edge AI
+                  implementation, we're ready to accelerate your business.
                 </p>
               </div>
 
               <div className="mt-12 lg:mt-0 space-y-6">
                 <div className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl p-6 space-y-6">
                   <ContactRow icon={Mail} label="Email" value={COMPANY.email} />
-                  <ContactRow icon={Phone} label="Phone" value={COMPANY.phone} />
-                  <ContactRow icon={MapPin} label="Location" value={COMPANY.address} />
+                  <ContactRow
+                    icon={Phone}
+                    label="Phone"
+                    value={COMPANY.phone}
+                  />
+                  <ContactRow
+                    icon={MapPin}
+                    label="Location"
+                    value={COMPANY.address}
+                  />
                 </div>
 
                 <div className="pt-6 border-t border-white/10 flex items-center justify-between">
@@ -115,11 +123,15 @@ function ContactPage() {
                     Follow Us
                   </span>
                   <div className="flex items-center gap-3">
-                    {[Linkedin, Twitter, Facebook].map((Icon, i) => (
+                    {[
+                      { Icon: Linkedin, label: "LinkedIn" },
+                      { Icon: Twitter, label: "Twitter" },
+                      { Icon: Facebook, label: "Facebook" },
+                    ].map(({ Icon, label }) => (
                       <a
-                        key={i}
+                        key={label}
                         href="#"
-                        aria-label="social"
+                        aria-label={`Follow us on ${label}`}
                         className="size-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:text-white hover:bg-brand transition-all hover:scale-110 hover:shadow-glow"
                       >
                         <Icon size={18} />
@@ -138,7 +150,7 @@ function ContactPage() {
               <div className="absolute top-0 right-0 w-64 h-64 bg-surface-tinted rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
               {submitted ? (
-                <SuccessState />
+                <SuccessState onReset={() => setSubmitted(false)} />
               ) : (
                 <div className="relative z-10 animate-in fade-in slide-in-from-bottom-8 duration-700">
                   <div className="mb-10">
@@ -146,11 +158,15 @@ function ContactPage() {
                       Send a message
                     </h2>
                     <p className="text-ink/60 text-lg">
-                      Fill out the form below and our team will get back to you within 24 hours.
+                      Fill out the form below and our team will get back to you
+                      within 24 hours.
                     </p>
                   </div>
 
-                  <form onSubmit={onSubmit} className="grid sm:grid-cols-2 gap-x-6 gap-y-8">
+                  <form
+                    onSubmit={onSubmit}
+                    className="grid sm:grid-cols-2 gap-x-6 gap-y-8"
+                  >
                     <Field
                       name="name"
                       label="Full Name"
@@ -238,7 +254,10 @@ function ContactRow({
   return (
     <div className="flex items-center gap-4 group cursor-default">
       <div className="size-12 rounded-xl bg-white/10 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-brand transition-all duration-300">
-        <Icon size={20} className="text-white group-hover:text-white transition-colors" />
+        <Icon
+          size={20}
+          className="text-white group-hover:text-white transition-colors"
+        />
       </div>
       <div>
         <div className="text-[11px] font-mono uppercase tracking-[0.2em] text-white/50 mb-1">
@@ -301,9 +320,11 @@ export function Field({
 export function SuccessState({
   title = "Message Sent",
   text = "Thank you for reaching out. Our team has received your message and will be in touch shortly.",
+  onReset,
 }: {
   title?: string;
   text?: string;
+  onReset?: () => void;
 }) {
   return (
     <div className="text-center py-20 px-6 animate-in zoom-in-95 duration-500">
@@ -317,12 +338,14 @@ export function SuccessState({
       <p className="text-ink/60 text-lg max-w-sm mx-auto leading-relaxed">
         {text}
       </p>
-      <button
-        onClick={() => window.location.reload()}
-        className="mt-10 text-brand font-semibold hover:text-brand-2 transition-colors underline underline-offset-4"
-      >
-        Send another message
-      </button>
+      {onReset && (
+        <button
+          onClick={onReset}
+          className="mt-10 text-brand font-semibold hover:text-brand-2 transition-colors underline underline-offset-4"
+        >
+          Send another message
+        </button>
+      )}
     </div>
   );
 }

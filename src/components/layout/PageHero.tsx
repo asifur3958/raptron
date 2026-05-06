@@ -29,7 +29,9 @@ export function PageHero({
           {title}
         </h1>
         {description && (
-          <p className="mt-6 max-w-2xl text-lg text-ink/65 leading-relaxed">{description}</p>
+          <p className="mt-6 max-w-2xl text-lg text-ink/65 leading-relaxed">
+            {description}
+          </p>
         )}
         {children && <div className="mt-8">{children}</div>}
       </div>
@@ -51,8 +53,8 @@ export function CTABanner() {
               Ready to rethink your business technology?
             </h2>
             <p className="mt-4 text-white/85 text-lg max-w-xl">
-              Let's design the next phase of your operations — together. Start with a free 45-minute
-              strategy session.
+              Let's design the next phase of your operations — together. Start
+              with a free 45-minute strategy session.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link

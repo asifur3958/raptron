@@ -1,4 +1,10 @@
-import { Outlet, createRootRoute, HeadContent, Scripts, Link } from "@tanstack/react-router";
+import {
+  Outlet,
+  createRootRoute,
+  HeadContent,
+  Scripts,
+  Link,
+} from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
 import { Navbar } from "@/components/layout/Navbar";
@@ -11,7 +17,9 @@ function NotFoundComponent() {
         <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand">
           Error 404
         </div>
-        <h1 className="mt-3 font-display text-6xl font-bold text-ink">Page not found</h1>
+        <h1 className="mt-3 font-display text-6xl font-bold text-ink">
+          Page not found
+        </h1>
         <p className="mt-3 text-sm text-ink/60">
           The page you're looking for doesn't exist or has been moved.
         </p>
@@ -33,7 +41,10 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "RAPTRON Digital Solutions — ERP, AI & Custom Software Consulting" },
+      {
+        title:
+          "RAPTRON Digital Solutions — ERP, AI & Custom Software Consulting",
+      },
       {
         name: "description",
         content:
@@ -42,15 +53,23 @@ export const Route = createRootRoute({
       { property: "og:title", content: "RAPTRON Digital Solutions" },
       {
         property: "og:description",
-        content: "Premium technology consulting — ERP, AI, and custom software.",
+        content:
+          "Premium technology consulting — ERP, AI, and custom software.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap",
+      },
       { rel: "stylesheet", href: appCss },
       { rel: "icon", type: "image/png", href: "/favicon.png" },
     ],
@@ -62,7 +81,7 @@ export const Route = createRootRoute({
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>

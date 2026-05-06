@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Linkedin, Twitter, Facebook, Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { Linkedin, Twitter, Facebook, Mail, Phone, MapPin } from "lucide-react";
 import { SERVICES, COMPANY, INDUSTRIES } from "@/lib/constants";
 
 export function Footer() {
@@ -19,16 +19,25 @@ export function Footer() {
                 className="h-16 w-auto scale-[1.4] origin-left brightness-0 invert opacity-90 object-contain"
               />
             </div>
-            <p className="text-sm text-white/60 leading-relaxed">{COMPANY.shortDescription}</p>
+            <p className="text-sm text-white/60 leading-relaxed">
+              {COMPANY.shortDescription}
+            </p>
             <div className="mt-8 flex items-center gap-3">
-              {[Linkedin, Twitter, Facebook].map((Icon, i) => (
+              {[
+                { Icon: Linkedin, label: "LinkedIn" },
+                { Icon: Twitter, label: "Twitter" },
+                { Icon: Facebook, label: "Facebook" },
+              ].map(({ Icon, label }) => (
                 <a
-                  key={i}
+                  key={label}
                   href="#"
-                  aria-label="social link"
+                  aria-label={`Follow us on ${label}`}
                   className="group size-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-brand-2 hover:border-brand-2 hover:text-white transition-all duration-300 hover:-translate-y-1"
                 >
-                  <Icon size={18} className="group-hover:scale-110 transition-transform" />
+                  <Icon
+                    size={18}
+                    className="group-hover:scale-110 transition-transform"
+                  />
                 </a>
               ))}
             </div>
@@ -117,7 +126,9 @@ export function Footer() {
                 <div className="mt-0.5 p-1.5 rounded-md bg-white/5 group-hover:bg-brand-2/20 transition-colors">
                   <Mail size={14} className="text-brand-2" />
                 </div>
-                <span className="leading-tight pt-0.5 break-all">{COMPANY.email}</span>
+                <span className="leading-tight pt-0.5 break-all">
+                  {COMPANY.email}
+                </span>
               </li>
               <li className="flex items-start gap-3 group cursor-pointer hover:text-white transition-colors">
                 <div className="mt-0.5 p-1.5 rounded-md bg-white/5 group-hover:bg-brand-2/20 transition-colors">

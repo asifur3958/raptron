@@ -1,6 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { ChevronLeft, ChevronRight, Calendar, Check, Clock } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Calendar,
+  Check,
+  Clock,
+} from "lucide-react";
 import { z } from "zod";
 import { Field, SuccessState } from "./contact";
 
@@ -10,14 +16,22 @@ export const Route = createFileRoute("/book-consultation")({
       { title: "Book Consultation — RAPTRON" },
       {
         name: "description",
-        content: "Book a free 45-minute strategy session with RAPTRON Digital Solutions.",
+        content:
+          "Book a free 45-minute strategy session with RAPTRON Digital Solutions.",
       },
     ],
   }),
   component: BookConsultationPage,
 });
 
-const TIME_SLOTS = ["9:00 AM", "10:00 AM", "11:00 AM", "2:00 PM", "3:00 PM", "4:00 PM"];
+const TIME_SLOTS = [
+  "9:00 AM",
+  "10:00 AM",
+  "11:00 AM",
+  "2:00 PM",
+  "3:00 PM",
+  "4:00 PM",
+];
 
 const schema = z.object({
   name: z.string().trim().min(1).max(100),
@@ -72,7 +86,9 @@ function BookConsultationPage() {
             <div className="absolute -bottom-24 -left-24 size-72 rounded-full bg-brand-deep/40 blur-3xl" />
             <div className="relative">
               <div className="flex items-baseline gap-2">
-                <span className="font-display font-extrabold text-2xl">RAPTRON</span>
+                <span className="font-display font-extrabold text-2xl">
+                  RAPTRON
+                </span>
                 <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
                   Digital Solutions
                 </span>
@@ -112,7 +128,13 @@ function BookConsultationPage() {
                   <div className="flex items-center gap-1">
                     <button
                       onClick={() =>
-                        setViewMonth(new Date(viewMonth.getFullYear(), viewMonth.getMonth() - 1, 1))
+                        setViewMonth(
+                          new Date(
+                            viewMonth.getFullYear(),
+                            viewMonth.getMonth() - 1,
+                            1,
+                          ),
+                        )
                       }
                       className="size-9 rounded-full border border-hairline flex items-center justify-center hover:border-brand/40 transition"
                       aria-label="Previous month"
@@ -120,11 +142,20 @@ function BookConsultationPage() {
                       <ChevronLeft size={16} />
                     </button>
                     <div className="text-sm font-semibold w-32 text-center">
-                      {viewMonth.toLocaleString("en-US", { month: "long", year: "numeric" })}
+                      {viewMonth.toLocaleString("en-US", {
+                        month: "long",
+                        year: "numeric",
+                      })}
                     </div>
                     <button
                       onClick={() =>
-                        setViewMonth(new Date(viewMonth.getFullYear(), viewMonth.getMonth() + 1, 1))
+                        setViewMonth(
+                          new Date(
+                            viewMonth.getFullYear(),
+                            viewMonth.getMonth() + 1,
+                            1,
+                          ),
+                        )
                       }
                       className="size-9 rounded-full border border-hairline flex items-center justify-center hover:border-brand/40 transition"
                       aria-label="Next month"
@@ -145,9 +176,13 @@ function BookConsultationPage() {
                   ))}
                   {days.map(({ date, currentMonth }, i) => {
                     const disabled =
-                      !currentMonth || date < today || date.getDay() === 0 || date.getDay() === 6;
+                      !currentMonth ||
+                      date < today ||
+                      date.getDay() === 0 ||
+                      date.getDay() === 6;
                     const isSelected =
-                      selectedDate && date.toDateString() === selectedDate.toDateString();
+                      selectedDate &&
+                      date.toDateString() === selectedDate.toDateString();
                     return (
                       <button
                         key={i}
@@ -228,9 +263,23 @@ function BookConsultationPage() {
                   </div>
                 </div>
                 <Field name="name" label="Full Name" error={errors.name} />
-                <Field name="company" label="Company Name" error={errors.company} />
-                <Field name="email" label="Work Email" type="email" error={errors.email} />
-                <Field name="phone" label="Phone" type="tel" error={errors.phone} />
+                <Field
+                  name="company"
+                  label="Company Name"
+                  error={errors.company}
+                />
+                <Field
+                  name="email"
+                  label="Work Email"
+                  type="email"
+                  error={errors.email}
+                />
+                <Field
+                  name="phone"
+                  label="Phone"
+                  type="tel"
+                  error={errors.phone}
+                />
                 <Field
                   name="message"
                   label="Brief requirement (optional)"

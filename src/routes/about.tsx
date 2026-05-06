@@ -5,13 +5,9 @@ import {
   TrendingUp,
   Handshake,
   Target,
-  Zap,
-  Award,
   Globe,
   Database,
-  BrainCircuit,
   Workflow,
-  Users,
   Crosshair,
   ArrowRight,
 } from "lucide-react";
@@ -26,7 +22,8 @@ export const Route = createFileRoute("/about")({
       { title: "About — RAPTRON Digital Solutions" },
       {
         name: "description",
-        content: "RAPTRON Digital Solutions LLC — built for the businesses that power the world.",
+        content:
+          "RAPTRON Digital Solutions LLC — built for the businesses that power the world.",
       },
     ],
   }),
@@ -68,13 +65,16 @@ function Hero() {
 
           <h1 className="font-display font-extrabold text-5xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-ink">
             Built for the <br />
-            <span className="text-transparent bg-clip-text bg-gradient-brand">businesses</span> that
-            power the world.
+            <span className="text-transparent bg-clip-text bg-gradient-brand">
+              businesses
+            </span>{" "}
+            that power the world.
           </h1>
 
           <p className="mt-8 text-xl text-ink/60 max-w-xl font-light leading-relaxed">
-            We exist to make modern technology behave like it was designed for the way real
-            businesses actually run. We are engineers, strategists, and operational experts.
+            We exist to make modern technology behave like it was designed for
+            the way real businesses actually run. We are engineers, strategists,
+            and operational experts.
           </p>
         </Reveal>
 
@@ -82,7 +82,7 @@ function Hero() {
           <div className="relative w-full aspect-square max-w-md mx-auto">
             <div className="absolute inset-0 bg-brand-2/20 blur-3xl rounded-full" />
             <div className="relative h-full w-full rounded-[2rem] border border-white/60 bg-white/40 backdrop-blur-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] p-8 overflow-hidden flex flex-col justify-between">
-              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay" />
+              <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:20px_20px] opacity-30 mix-blend-overlay" />
               <div className="relative z-10">
                 <div className="size-16 rounded-2xl bg-gradient-brand text-white flex items-center justify-center shadow-lg mb-8">
                   <Target size={32} />
@@ -91,8 +91,8 @@ function Hero() {
                   Precision over buzzwords.
                 </h3>
                 <p className="text-ink/70 text-lg leading-relaxed">
-                  While others chase trends, we focus on deterministic outcomes. We map value flows,
-                  then architect systems to amplify them.
+                  While others chase trends, we focus on deterministic outcomes.
+                  We map value flows, then architect systems to amplify them.
                 </p>
               </div>
 
@@ -128,21 +128,25 @@ function StorySection() {
         <Reveal className="lg:col-span-7" delay={100}>
           <div className="space-y-8 text-lg text-ink/70 leading-relaxed max-w-2xl">
             <p>
-              RAPTRON Digital Solutions LLC is a premium technology partner specializing in ERP,
-              business process re-engineering, AI consulting, and custom software. We work with
-              leadership teams that want a partner who is opinionated, vendor-neutral, and
+              RAPTRON Digital Solutions LLC is a premium technology partner
+              specializing in ERP, business process re-engineering, AI
+              consulting, and custom software. We work with leadership teams
+              that want a partner who is opinionated, vendor-neutral, and
               accountable for outcomes — not just deliverables.
             </p>
             <p>
-              Our work begins where most consulting ends: with the operational reality. We don't
-              believe in abstract strategy decks. We believe in shipping robust, scalable systems
-              that directly impact the bottom line.
+              Our work begins where most consulting ends: with the operational
+              reality. We don't believe in abstract strategy decks. We believe
+              in shipping robust, scalable systems that directly impact the
+              bottom line.
             </p>
             <div className="flex items-center gap-4 pt-4 border-t border-hairline">
               <div className="size-12 rounded-full bg-mist flex items-center justify-center text-brand">
                 <Crosshair size={24} />
               </div>
-              <div className="font-semibold text-ink">Laser-focused on operational excellence.</div>
+              <div className="font-semibold text-ink">
+                Laser-focused on operational excellence.
+              </div>
             </div>
           </div>
         </Reveal>
@@ -167,7 +171,8 @@ function MissionVision() {
                   Our Mission
                 </div>
                 <p className="font-display text-3xl lg:text-4xl leading-tight text-ink font-bold">
-                  To empower organizations through intelligent, scalable technology.
+                  To empower organizations through intelligent, scalable
+                  technology.
                 </p>
                 <div className="mt-8 inline-flex items-center gap-2 text-brand font-semibold group-hover:translate-x-2 transition-transform cursor-pointer">
                   Read our manifesto <ArrowRight size={18} />
@@ -183,7 +188,8 @@ function MissionVision() {
                   Our Vision
                 </div>
                 <p className="font-display text-3xl lg:text-4xl leading-tight font-bold">
-                  A world where every business operates at its full digital potential.
+                  A world where every business operates at its full digital
+                  potential.
                 </p>
                 <div className="mt-8 inline-flex items-center gap-2 text-brand-2 font-semibold group-hover:translate-x-2 transition-transform cursor-pointer">
                   Explore our capabilities <ArrowRight size={18} />
@@ -229,8 +235,12 @@ function ValuesBento() {
                     <div className="size-14 rounded-xl bg-gradient-brand text-white flex items-center justify-center shadow-md mb-8 group-hover:scale-110 transition-transform duration-500">
                       <Icon size={24} />
                     </div>
-                    <h4 className="font-display font-bold text-2xl text-ink mb-4">{v.title}</h4>
-                    <p className="text-ink/65 leading-relaxed">{v.description}</p>
+                    <h4 className="font-display font-bold text-2xl text-ink mb-4">
+                      {v.title}
+                    </h4>
+                    <p className="text-ink/65 leading-relaxed">
+                      {v.description}
+                    </p>
                   </div>
                 </div>
               );
@@ -259,7 +269,12 @@ function StatsSection() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 lg:gap-8 divide-x-0 md:divide-x divide-white/10 text-center">
             {STATS.map((s, i) => (
               <div key={s.label} className="flex flex-col items-center">
-                <Counter value={s.value} suffix={s.suffix} label={s.label} delay={i * 100} />
+                <Counter
+                  value={s.value}
+                  suffix={s.suffix}
+                  label={s.label}
+                  delay={i * 100}
+                />
               </div>
             ))}
           </div>

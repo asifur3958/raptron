@@ -29,7 +29,11 @@ export function Reveal({
     return () => io.disconnect();
   }, []);
   return (
-    <div ref={ref} className={className} style={{ transitionDelay: `${delay}ms` }}>
+    <div
+      ref={ref}
+      className={className}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
       {children}
     </div>
   );
