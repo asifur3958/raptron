@@ -1,12 +1,5 @@
-import {
-  Outlet,
-  createRootRoute,
-  HeadContent,
-  Scripts,
-  Link,
-} from "@tanstack/react-router";
+import { Outlet, createRootRoute, Link } from "@tanstack/react-router";
 
-import appCss from "../styles.css?url";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
@@ -37,61 +30,9 @@ function NotFoundComponent() {
 }
 
 export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      {
-        title:
-          "RAPTRON Digital Solutions — ERP, AI & Custom Software Consulting",
-      },
-      {
-        name: "description",
-        content:
-          "RAPTRON Digital Solutions LLC — ERP consulting, business process improvement, AI consulting and custom software development for ambitious businesses.",
-      },
-      { property: "og:title", content: "RAPTRON Digital Solutions" },
-      {
-        property: "og:description",
-        content:
-          "Premium technology consulting — ERP, AI, and custom software.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      {
-        rel: "preconnect",
-        href: "https://fonts.gstatic.com",
-        crossOrigin: "anonymous",
-      },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap",
-      },
-      { rel: "stylesheet", href: appCss },
-      { rel: "icon", type: "image/png", href: "/favicon.png" },
-    ],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
 });
-
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   return (
