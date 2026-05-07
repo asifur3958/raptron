@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import {
   User,
@@ -9,7 +9,7 @@ import {
   Pencil,
   Check,
   ArrowRight,
-  Sparkles,
+  PlayCircle,
   ShieldCheck,
 } from "lucide-react";
 import { z } from "zod";
@@ -19,7 +19,7 @@ import { INDUSTRIES } from "@/lib/constants";
 export const Route = createFileRoute("/request-demo")({
   head: () => ({
     meta: [
-      { title: "Request a Demo — RAPTRON" },
+      { title: "Request a Demo - RAPTRON" },
       {
         name: "description",
         content:
@@ -109,7 +109,7 @@ function RequestDemoPage() {
 
               <div className="flex-1 flex flex-col justify-center">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-xs font-mono uppercase tracking-widest mb-6 w-max">
-                  <Sparkles size={14} className="text-brand-2" />
+                  <PlayCircle size={14} className="text-brand-2" />
                   <span>Personalized Walkthrough</span>
                 </div>
 

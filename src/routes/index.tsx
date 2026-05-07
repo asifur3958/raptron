@@ -1,8 +1,8 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Calendar,
   ArrowRight,
-  Sparkles,
+  CheckCircle2,
   Workflow,
   BrainCircuit,
   Star,
@@ -24,11 +24,11 @@ import { useEffect, useRef, useState } from "react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "RAPTRON Digital Solutions — ERP, AI & Custom Software" },
+      { title: "RAPTRON Digital Solutions - ERP, AI & Custom Software" },
       {
         name: "description",
         content:
-          "Transform your business operations with precision technology — ERP consulting, AI, and custom software from RAPTRON Digital Solutions LLC.",
+          "Transform your business operations with precision technology - ERP consulting, AI, and custom software from RAPTRON Digital Solutions LLC.",
       },
     ],
   }),
@@ -40,7 +40,6 @@ function HomePage() {
     <main className="w-full bg-white overflow-x-hidden">
       <Hero />
       <IndustriesTicker />
-      <TechEcosystem />
       <ValueBento />
       <ServicesShowcase />
       <ProcessTimeline />
@@ -71,12 +70,12 @@ function Hero() {
             </span>
           </div>
 
-          <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-[5.5rem] leading-[1.05] text-ink max-w-5xl mx-auto">
+          <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-[4.5rem] leading-[1.05] text-ink max-w-5xl mx-auto">
             Architecting <span className="text-brand">Intelligent</span>{" "}
             <br className="hidden sm:block" /> Business Systems.
           </h1>
 
-          <p className="mt-6 text-xl sm:text-2xl text-ink/70 max-w-3xl mx-auto leading-relaxed">
+          <p className="mt-6 text-xl sm:text-xl text-ink/70 max-w-3xl mx-auto leading-relaxed">
             We merge ERP consulting, AI automation, and custom software to build
             the operational backbone of tomorrow's industry leaders.
           </p>
@@ -90,9 +89,15 @@ function Hero() {
             </Link>
             <Link
               to="/request-demo"
-              className="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-full border border-hairline text-ink font-semibold text-lg hover:border-brand/40 hover:bg-surface-tinted transition-colors"
+              className="group relative inline-flex items-center justify-center gap-2 h-14 px-8 rounded-full border-0 text-white font-semibold text-lg overflow-hidden shadow-glow transition-all duration-300 hover:shadow-[0_0_40px_rgba(85,9,217,0.6)] hover:scale-105"
             >
-              Request Demo <ArrowRight size={18} />
+              {/* Always-on fill */}
+              <span className="absolute inset-0 bg-ink rounded-full" />
+              <span className="absolute inset-0 bg-gradient-brand opacity-30 rounded-full group-hover:opacity-50 transition-opacity duration-500" />
+              <span className="relative z-10 flex items-center gap-2">
+                Request Demo
+                <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
             </Link>
           </div>
         </Reveal>
@@ -163,46 +168,6 @@ function IndustriesTicker() {
   );
 }
 
-function TechEcosystem() {
-  return (
-    <section className="py-12 bg-mist border-b border-hairline relative z-20">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-8">
-        <h3 className="font-mono text-sm uppercase tracking-[0.2em] text-ink/40 font-semibold whitespace-nowrap">
-          Core Technologies
-        </h3>
-        <div className="flex flex-wrap items-center justify-center md:justify-end gap-10 lg:gap-16 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-default">
-          {/* Odoo */}
-          <div className="text-4xl font-display font-bold tracking-tighter text-[#714B67] select-none">
-            odoo
-          </div>
-          {/* SAP */}
-          <div className="text-4xl font-display font-extrabold tracking-wide text-[#008FD3] select-none italic">
-            SAP
-          </div>
-          {/* ZOHO */}
-          <div className="flex items-center gap-1 select-none shadow-sm">
-            <div className="size-8 rounded-sm bg-[#E42528] flex items-center justify-center text-white font-bold text-xl">
-              Z
-            </div>
-            <div className="size-8 rounded-sm bg-[#41B649] flex items-center justify-center text-white font-bold text-xl">
-              O
-            </div>
-            <div className="size-8 rounded-sm bg-[#F89C1E] flex items-center justify-center text-white font-bold text-xl">
-              H
-            </div>
-            <div className="size-8 rounded-sm bg-[#00A1E0] flex items-center justify-center text-white font-bold text-xl">
-              O
-            </div>
-          </div>
-          {/* ERP Next */}
-          <div className="text-4xl font-display font-bold text-[#006aff] select-none tracking-tight">
-            ERP<span className="font-light">Next</span>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function ValueBento() {
   return (
@@ -355,7 +320,7 @@ function ServicesShowcase() {
                             key={b}
                             className="text-white/80 flex items-center gap-3 text-lg"
                           >
-                            <Sparkles
+                            <CheckCircle2
                               size={16}
                               className="text-brand-2 shrink-0"
                             />{" "}

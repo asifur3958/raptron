@@ -1,6 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import {
-  Sparkles,
+  RefreshCw,
   ShieldCheck,
   TrendingUp,
   Handshake,
@@ -19,11 +19,11 @@ import { useEffect, useRef, useState } from "react";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — RAPTRON Digital Solutions" },
+      { title: "About - RAPTRON Digital Solutions" },
       {
         name: "description",
         content:
-          "RAPTRON Digital Solutions LLC — built for the businesses that power the world.",
+          "RAPTRON Digital Solutions LLC - built for the businesses that power the world.",
       },
     ],
   }),
@@ -132,7 +132,7 @@ function StorySection() {
               specializing in ERP, business process re-engineering, AI
               consulting, and custom software. We work with leadership teams
               that want a partner who is opinionated, vendor-neutral, and
-              accountable for outcomes — not just deliverables.
+              accountable for outcomes - not just deliverables.
             </p>
             <p>
               Our work begins where most consulting ends: with the operational
@@ -204,7 +204,7 @@ function MissionVision() {
 }
 
 function ValuesBento() {
-  const VALUE_ICONS = [Handshake, ShieldCheck, TrendingUp, Sparkles];
+  const VALUE_ICONS = [Handshake, ShieldCheck, RefreshCw, TrendingUp];
 
   return (
     <section className="py-28 lg:py-36 bg-white relative">

@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   Mail,
@@ -9,7 +9,7 @@ import {
   Facebook,
   Check,
   Send,
-  Sparkles,
+  MessageCircle,
   ArrowRight,
 } from "lucide-react";
 import { z } from "zod";
@@ -18,7 +18,7 @@ import { COMPANY } from "@/lib/constants";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — RAPTRON Digital Solutions" },
+      { title: "Contact - RAPTRON Digital Solutions" },
       {
         name: "description",
         content:
@@ -83,7 +83,7 @@ function ContactPage() {
             <div className="relative z-10 h-full flex flex-col justify-between min-h-[500px] lg:min-h-[600px]">
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-xs font-mono uppercase tracking-widest mb-8">
-                  <Sparkles size={14} className="text-brand-2" />
+                  <MessageCircle size={14} className="text-brand-2" />
                   <span>Get in Touch</span>
                 </div>
 
@@ -97,14 +97,14 @@ function ContactPage() {
                   </span>
                 </h1>
 
-                <p className="text-white/70 text-lg max-w-md font-sans">
+                <p className="text-white/70 text-lg max-w-md font-sans mb-8">
                   Whether you need a complete ERP overhaul or a cutting-edge AI
                   implementation, we're ready to accelerate your business.
                 </p>
               </div>
 
               <div className="mt-12 lg:mt-0 space-y-6">
-                <div className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl p-6 space-y-6">
+                <div className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl p-4 space-y-4">
                   <ContactRow icon={Mail} label="Email" value={COMPANY.email} />
                   <ContactRow
                     icon={Phone}
@@ -252,18 +252,18 @@ function ContactRow({
   value: string;
 }) {
   return (
-    <div className="flex items-center gap-4 group cursor-default">
-      <div className="size-12 rounded-xl bg-white/10 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-brand transition-all duration-300">
+    <div className="flex items-center gap-3 group cursor-default">
+      <div className="size-9 rounded-xl bg-white/10 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-brand transition-all duration-300">
         <Icon
-          size={20}
+          size={16}
           className="text-white group-hover:text-white transition-colors"
         />
       </div>
       <div>
-        <div className="text-[11px] font-mono uppercase tracking-[0.2em] text-white/50 mb-1">
+        <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/50 mb-0.5">
           {label}
         </div>
-        <div className="font-medium text-white/90">{value}</div>
+        <div className="text-sm font-medium text-white/90">{value}</div>
       </div>
     </div>
   );
@@ -285,7 +285,7 @@ export function Field({
   error?: string;
 }) {
   const baseClasses =
-    "w-full rounded-2xl bg-mist border-2 border-transparent px-5 text-ink placeholder:text-ink/30 outline-none transition-all duration-300 focus:bg-white focus:border-brand focus:ring-4 focus:ring-brand/10 hover:bg-white/60";
+    "w-full rounded-2xl bg-zinc-100 border-2 border-transparent px-5 text-ink placeholder:text-ink/30 outline-none transition-all duration-300 focus:bg-white focus:border-brand focus:ring-4 focus:ring-brand/10 hover:bg-zinc-50";
   const inputClasses = `${baseClasses} h-14`;
   const textareaClasses = `${baseClasses} py-4 min-h-[160px] resize-y`;
 

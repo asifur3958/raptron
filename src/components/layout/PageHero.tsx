@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+﻿import { Link } from "@tanstack/react-router";
 import { Calendar, ArrowRight } from "lucide-react";
 import type { ReactNode } from "react";
 
@@ -53,7 +53,7 @@ export function CTABanner() {
               Ready to rethink your business technology?
             </h2>
             <p className="mt-4 text-white/85 text-lg max-w-xl">
-              Let's design the next phase of your operations — together. Start
+              Let's design the next phase of your operations - together. Start
               with a free 45-minute strategy session.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">

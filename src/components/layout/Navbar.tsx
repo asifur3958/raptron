@@ -1,12 +1,12 @@
 import { Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Menu,
   X,
   Calendar,
   ArrowRight,
   ChevronDown,
-  Sparkles,
+  Zap,
 } from "lucide-react";
 import { SERVICES } from "@/lib/constants";
 
@@ -14,6 +14,16 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const openServices = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setServicesOpen(true);
+  };
+
+  const closeServices = () => {
+    closeTimer.current = setTimeout(() => setServicesOpen(false), 300);
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -48,8 +58,8 @@ export function Navbar() {
           <NavItem to="/" label="Home" />
           <div
             className="relative"
-            onMouseEnter={() => setServicesOpen(true)}
-            onMouseLeave={() => setServicesOpen(false)}
+            onMouseEnter={openServices}
+            onMouseLeave={closeServices}
           >
             <Link
               to="/services"
@@ -61,11 +71,13 @@ export function Navbar() {
                 className={`transition ${servicesOpen ? "rotate-180" : ""}`}
               />
             </Link>
+            {/* Invisible bridge — must be >= the visual gap below the trigger */}
+            <div className="absolute left-0 right-0 top-full h-4" />
             <div
-              className={`absolute left-1/2 -translate-x-[40%] top-[calc(100%+1rem)] w-[900px] transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] origin-top-left ${
+              className={`absolute left-1/2 -translate-x-[40%] top-[calc(100%+0.5rem)] w-[900px] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] origin-top-left ${
                 servicesOpen
                   ? "opacity-100 scale-100 translate-y-0 pointer-events-auto"
-                  : "opacity-0 scale-95 -translate-y-4 pointer-events-none"
+                  : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
               }`}
             >
               <div className="rounded-[2.5rem] bg-white border border-white shadow-[0_40px_100px_-20px_rgba(0,0,0,0.15)] overflow-hidden flex">
@@ -100,13 +112,36 @@ export function Navbar() {
                   </div>
                 </div>
 
-                <div className="w-[320px] bg-ink relative overflow-hidden p-8 flex flex-col justify-between group">
-                  <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:20px_20px] opacity-30 mix-blend-overlay" />
-                  <div className="absolute -top-32 -right-32 w-64 h-64 bg-brand/30 blur-[60px] rounded-full group-hover:scale-150 transition-transform duration-700" />
+                <div className="w-[320px] bg-ink relative overflow-hidden p-8 flex flex-col justify-between">
+                  {/* Dot grid texture */}
+                  <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:20px_20px] opacity-30 mix-blend-overlay pointer-events-none" />
+
+                  {/* Animated orb 1 — top-right, slow drift */}
+                  <div
+                    className="absolute -top-20 -right-20 w-56 h-56 bg-brand/40 blur-[70px] rounded-full pointer-events-none"
+                    style={{ animation: "orbDrift1 6s ease-in-out infinite alternate" }}
+                  />
+                  {/* Animated orb 2 — bottom-left, offset phase */}
+                  <div
+                    className="absolute -bottom-20 -left-10 w-48 h-48 bg-brand-2/30 blur-[80px] rounded-full pointer-events-none"
+                    style={{ animation: "orbDrift2 8s ease-in-out infinite alternate" }}
+                  />
+
+                  {/* Keyframes injected inline */}
+                  <style>{`
+                    @keyframes orbDrift1 {
+                      from { transform: translate(0, 0) scale(1); }
+                      to   { transform: translate(-20px, 20px) scale(1.25); }
+                    }
+                    @keyframes orbDrift2 {
+                      from { transform: translate(0, 0) scale(1); }
+                      to   { transform: translate(18px, -18px) scale(1.2); }
+                    }
+                  `}</style>
 
                   <div className="relative z-10">
                     <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-medium text-white mb-6">
-                      <Sparkles size={12} className="text-brand-2" />{" "}
+                      <Zap size={12} className="text-brand-2" />{" "}
                       Transformation
                     </div>
                     <h4 className="font-display text-2xl font-bold text-white leading-snug mb-3">
@@ -120,6 +155,10 @@ export function Navbar() {
 
                   <Link
                     to="/book-consultation"
+                    onClick={() => {
+                      if (closeTimer.current) clearTimeout(closeTimer.current);
+                      setServicesOpen(false);
+                    }}
                     className="relative z-10 w-full flex items-center justify-between p-4 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/10 transition-colors group/btn"
                   >
                     <span className="font-semibold text-white text-sm">
@@ -140,9 +179,14 @@ export function Navbar() {
         <div className="hidden lg:flex items-center gap-3">
           <Link
             to="/request-demo"
-            className="px-4 h-10 inline-flex items-center gap-1.5 text-sm font-medium text-ink rounded-full border border-brand/40 bg-surface-tinted transition shadow-sm"
+            className="group relative px-4 h-10 inline-flex items-center gap-1.5 text-sm font-medium text-white rounded-full border-0 overflow-hidden shadow-card transition-all duration-300 hover:shadow-glow hover:scale-105"
           >
-            Request Demo <ArrowRight size={14} />
+            <span className="absolute inset-0 bg-ink rounded-full" />
+            <span className="absolute inset-0 bg-gradient-brand opacity-30 rounded-full group-hover:opacity-50 transition-opacity duration-500" />
+            <span className="relative z-10 flex items-center gap-1.5">
+              Request Demo
+              <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5" />
+            </span>
           </Link>
         </div>
 
@@ -205,9 +249,11 @@ export function Navbar() {
             <Link
               to="/request-demo"
               onClick={() => setOpen(false)}
-              className="block text-center px-5 h-12 leading-[3rem] rounded-full border border-brand/40 bg-surface-tinted font-medium"
+              className="group relative block text-center px-5 h-12 leading-[3rem] rounded-full border-0 font-medium text-white overflow-hidden shadow-card transition-all duration-300 hover:shadow-glow"
             >
-              Request Demo
+              <span className="absolute inset-0 bg-ink rounded-full" />
+              <span className="absolute inset-0 bg-gradient-brand opacity-30 rounded-full group-hover:opacity-50 transition-opacity duration-500" />
+              <span className="relative z-10">Request Demo</span>
             </Link>
           </div>
         </div>

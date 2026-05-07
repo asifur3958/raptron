@@ -1,4 +1,4 @@
-import type { LucideIcon } from "lucide-react";
+﻿import type { LucideIcon } from "lucide-react";
 import {
   Compass,
   Layers,
@@ -99,7 +99,7 @@ export const SERVICES: Service[] = [
     tagline: "From kickoff to go-live, owned end-to-end.",
     headline: "Go Live With Confidence",
     description:
-      "Full lifecycle ERP rollouts — configuration, migration, training, and adoption — engineered to land safely and stick.",
+      "Full lifecycle ERP rollouts - configuration, migration, training, and adoption - engineered to land safely and stick.",
     icon: Layers,
     bullets: [
       "End-to-end deployment",
@@ -206,7 +206,7 @@ export const SERVICES: Service[] = [
     tagline: "Engineer how the work actually flows.",
     headline: "Eliminate Waste. Accelerate Output.",
     description:
-      "We re-engineer operations using lean principles, measurable KPIs, and process intelligence — before software ever enters the room.",
+      "We re-engineer operations using lean principles, measurable KPIs, and process intelligence - before software ever enters the room.",
     icon: Workflow,
     bullets: [
       "Process mapping & redesign",
@@ -261,7 +261,7 @@ export const SERVICES: Service[] = [
     tagline: "Software shaped to your business logic.",
     headline: "Software Engineered for Your Exact Business Logic",
     description:
-      "When off-the-shelf doesn't fit, we build resilient, scalable, ownable systems — web, mobile, and cloud-native.",
+      "When off-the-shelf doesn't fit, we build resilient, scalable, ownable systems - web, mobile, and cloud-native.",
     icon: Code2,
     bullets: [
       "Web & SaaS platforms",
@@ -316,7 +316,7 @@ export const SERVICES: Service[] = [
     tagline: "Make your business smarter, not just faster.",
     headline: "Make Your Business Smarter, Not Just Faster",
     description:
-      "Pragmatic AI strategy and integration — embedding predictive intelligence into the systems your business already runs on.",
+      "Pragmatic AI strategy and integration - embedding predictive intelligence into the systems your business already runs on.",
     icon: BrainCircuit,
     bullets: [
       "AI readiness & strategy",
@@ -399,7 +399,7 @@ export const TESTIMONIALS = [
   },
   {
     quote:
-      "Their AI consulting cut through the hype. We shipped two production use-cases in a quarter — both already paying for themselves.",
+      "Their AI consulting cut through the hype. We shipped two production use-cases in a quarter - both already paying for themselves.",
     name: "Amet Consectetur",
     title: "Director, Digital Strategy",
     company: "Placeholder Retail Holdings",

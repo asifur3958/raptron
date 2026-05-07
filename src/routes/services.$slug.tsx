@@ -1,4 +1,4 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+﻿import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowRight, Check, Calendar, TrendingUp } from "lucide-react";
 import { SERVICES, type ServiceSlug } from "@/lib/constants";
 import { CTABanner, PageHero } from "@/components/layout/PageHero";
@@ -13,7 +13,7 @@ export const Route = createFileRoute("/services/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.service.title} — RAPTRON` },
+          { title: `${loaderData.service.title} - RAPTRON` },
           { name: "description", content: loaderData.service.description },
           { property: "og:title", content: loaderData.service.title },
           {
@@ -86,7 +86,7 @@ function ServicePage() {
                   A scope built around outcomes.
                 </h2>
                 <p className="mt-4 text-ink/65">
-                  Every engagement is tailored — these are the building blocks
+                  Every engagement is tailored - these are the building blocks
                   we draw from.
                 </p>
               </div>

@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
   CheckCircle2,
@@ -6,7 +6,7 @@ import {
   Zap,
   Database,
   Workflow,
-  Sparkles,
+  LayoutGrid,
 } from "lucide-react";
 import { SERVICES, PROCESS_STEPS, INDUSTRIES } from "@/lib/constants";
 import { CTABanner } from "@/components/layout/PageHero";
@@ -15,7 +15,7 @@ import { Reveal } from "@/components/Reveal";
 export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
-      { title: "Services — RAPTRON Digital Solutions" },
+      { title: "Services - RAPTRON Digital Solutions" },
       {
         name: "description",
         content: "ERP consulting, AI, and custom software.",
@@ -47,7 +47,7 @@ function Hero() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <Reveal>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-ink/10 bg-white/50 backdrop-blur-md mb-8 shadow-sm">
-              <Sparkles size={16} className="text-brand" />
+              <LayoutGrid size={16} className="text-brand" />
               <span className="text-xs font-mono uppercase tracking-[0.2em] text-ink font-bold">
                 Capabilities Matrix
               </span>
